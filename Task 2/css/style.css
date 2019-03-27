@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #BDCCCA;
+}
+
+.top {
+    width: 100vw;
+    height: 10vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.top .nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top .nav-item > div {
+    width: 110px;
+    border-radius: 10px;
+    text-align: center;
+    padding: 15px;
+    background: gray;
+    transition: .3s;
+}
+
+.top .nav-item > div:hover {
+    background: #A69CAC;
+}
+
+.main {
+    width: 100vw;
+    height: 84vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+/* ты нахуй тут насрал */
