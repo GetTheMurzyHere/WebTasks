@@ -2,11 +2,13 @@ body {
     margin: 0;
     padding: 0;
     background: #BDCCCA;
+    font-size: 19px;
+    font-family: sans-serif;
 }
 
 .top {
     width: 100vw;
-    height: 10vh;
+    height: 14vh;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
@@ -32,11 +34,10 @@ body {
 
 .main {
     width: 100vw;
-    height: 84vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
-/* ты нахуй тут насрал */
