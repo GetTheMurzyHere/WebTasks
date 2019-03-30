@@ -19,7 +19,9 @@ body {
     align-items: center;
 }
 
-.top .nav-item > div {
+.top .nav-item > a {
+    text-decoration: none;
+    color: black;
     width: 110px;
     border-radius: 10px;
     text-align: center;
@@ -28,7 +30,7 @@ body {
     transition: .3s;
 }
 
-.top .nav-item > div:hover {
+.top .nav-item > a:hover {
     background: #A69CAC;
 }
 
