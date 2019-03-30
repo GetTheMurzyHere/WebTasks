@@ -34,6 +34,10 @@ body {
     background: #A69CAC;
 }
 
+.poem-content {
+    margin: 10px;
+}
+
 .main {
     width: 100vw;
     height: 80vh;
