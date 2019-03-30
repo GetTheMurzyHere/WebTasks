@@ -36,6 +36,7 @@ body {
 
 .about-content {
     margin: 10px;
+    width: 50vw;
 }
 
 .main {
@@ -46,9 +47,6 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-}
-.main > div {
-    width: 50vw
 }
 
 .photo {
