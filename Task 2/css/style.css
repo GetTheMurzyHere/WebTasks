@@ -34,9 +34,10 @@ body {
     background: #A69CAC;
 }
 
-.about-content {
+.main .about-content {
     margin: 10px;
     width: 50vw;
+    font-size: 16px;
 }
 
 .main {
@@ -50,10 +51,22 @@ body {
 }
 
 .photo {
-    width: 201px; 
-    height: 250px; 
+    width: 185px; 
+    height: 240px; 
     border-radius: 5%;
     border: 1px solid #000;
     float: left;
     margin: 20px 20px 0 0
+}
+
+.main .bottom-content {
+    display: flex;
+    width: 50vw;
+    align-items: center;
+    justify-content: center;
+    height: 20vh;
+}
+
+.list li {
+    text-align: left;
 }
