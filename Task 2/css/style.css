@@ -83,7 +83,7 @@ body {
     display: grid;
     grid-auto-flow: column;
     justify-content: center;
-    height: 20vh;
+    height: 22vh;
 }
 
 .banners a img {
@@ -94,4 +94,5 @@ body {
 
 .banners a img:hover {
     transform: scale(1.25);
+    position: relative;
 }
