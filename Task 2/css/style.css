@@ -79,18 +79,19 @@ body {
     align-items: center;
 }
 
-.banners {
+.banners a {
     display: grid;
     grid-auto-flow: column;
+    justify-content: center;
+    height: 20vh;
 }
 
 .banners a img {
-    max-width: 115px;
-    max-height: 200px;
+    height: 145px;
+    width: 150px;
     transition: .3s;
 }
 
 .banners a img:hover {
-    max-width: 140px;
-    max-height: 240px;
+    transform: scale(1.25);
 }
