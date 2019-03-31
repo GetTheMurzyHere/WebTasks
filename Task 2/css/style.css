@@ -70,3 +70,11 @@ body {
 .list li {
     text-align: left;
 }
+
+.main .mainContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100vw;
+    height: 80vh;
+    align-items: center;
+}
