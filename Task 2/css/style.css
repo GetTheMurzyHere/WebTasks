@@ -94,5 +94,13 @@ body {
 
 .banners a img:hover {
     transform: scale(1.25);
-    position: relative;
+}
+
+.video iframe {
+    width: 100%; 
+    height: 300px; 
+}
+
+.meme img {
+    height: 375px;
 }
