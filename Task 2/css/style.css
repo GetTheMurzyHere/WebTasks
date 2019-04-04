@@ -53,6 +53,12 @@ body {
     transition: all .2s;
 }
 
+.list li {
+    text-align: left;
+    color: black;
+    list-style: circle;
+}
+
 .top .firstMenu ul, li {
     padding: 0;
     margin: 0;
@@ -133,9 +139,7 @@ body {
     height: 20vh;
 }
 
-.list li {
-    text-align: left;
-}
+
 
 .main .mainContent {
     display: grid;
@@ -210,5 +214,34 @@ body {
     }
     .fullName {
         width: 100vw !important;
+    }
+
+    .bottom-content {
+        width: 70vw !important;
+        display: flex;
+        justify-content: center;
+    }
+
+    .list {
+        width: 30vw;
+    }
+
+    .main .hr {
+        visibility: hidden !important;
+    }
+
+    .meme {
+        display: flex;
+        align-items: center;
+        height: 70vh;
+    }
+
+    .meme > img {
+        height: 60vh;
+    }
+
+    #signature {
+        width: 90vw !important;
+        justify-content: flex-end;
     }
 }
