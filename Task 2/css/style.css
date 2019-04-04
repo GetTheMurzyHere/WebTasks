@@ -18,16 +18,6 @@ body {
     display: flex;
 }
 
-.top .firstMenu li ul li {
-    position: relative;
-}
-
-.top .firstMenu li ul {
-    position: absolute;
-    left: 125px;
-    top: 0;
-}
-
 .top .menuButton {
     display: flex;
     justify-content: center;
@@ -91,6 +81,16 @@ body {
 .top .firstMenu li:focus {
     background: rgb(102, 216, 199);
     outline: none;
+}
+
+.top #secondMenu {
+    position: relative;
+}
+
+.top #secondMenu {
+    position: absolute;
+    left: 125px;
+    top: -4;
 }
 
 .main .about-content {
