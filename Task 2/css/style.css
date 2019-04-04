@@ -178,3 +178,37 @@ body {
     height: 375px;
     border-radius: 10px
 }
+
+@media print {
+    body {
+        background-color: white;
+    }
+    
+    .banners {
+        display: none;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .video {
+        display: none;
+    }
+
+    .signature {
+        display: none !important;
+    }
+
+    .poemName {
+        font-size: 28px !important;
+    }
+
+    .about-content {
+        margin: 0;
+        width: 100vw !important;
+    }
+    .fullName {
+        width: 100vw !important;
+    }
+}
