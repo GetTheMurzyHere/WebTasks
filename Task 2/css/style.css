@@ -14,10 +14,6 @@ body {
     justify-content: center;
 }
 
-.top .menuBlock {
-    display: flex;
-}
-
 .top .menuButton {
     display: flex;
     justify-content: center;
