@@ -26,6 +26,7 @@ body {
 }
 
 .menu:hover > .firstMenu {
+    visibility: visible;
     opacity: 1;
 }
 
@@ -36,6 +37,7 @@ body {
 .top .firstMenu {
     margin-top: 2px;
     display: flex;
+    visibility: hidden;
     opacity: 0;
     justify-content: center;
     position: absolute;
