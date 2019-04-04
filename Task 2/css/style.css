@@ -26,7 +26,6 @@ body {
 }
 
 .menu:hover > .firstMenu {
-    display: flex;
     opacity: 1;
 }
 
@@ -36,7 +35,7 @@ body {
 
 .top .firstMenu {
     margin-top: 2px;
-    display: none;
+    display: flex;
     opacity: 0;
     justify-content: center;
     position: absolute;
@@ -44,7 +43,7 @@ body {
     border: 3px double rgb(113, 172, 163);
     border-radius: 10px;
     background: rgb(207, 228, 225);
-    transition: all .3s;
+    transition: all .2s;
 }
 
 .top .firstMenu ul,li {
