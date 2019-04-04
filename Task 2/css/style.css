@@ -83,6 +83,11 @@ body {
     outline: none;
 }
 
+.top .firstMenu > ul > li:focus #secondMenu{
+    visibility: visible;
+    opacity: 1;
+}
+
 .top #secondMenu {
     visibility: hidden;
     position: absolute;
@@ -91,9 +96,8 @@ body {
     opacity: 0;
 }
 
-.top .firstMenu > ul > li:focus #secondMenu{
-    visibility: visible;
-    opacity: 1;
+#secondMenu a {
+    text-decoration: none;
 }
 
 .main .about-content {
