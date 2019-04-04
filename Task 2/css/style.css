@@ -56,17 +56,17 @@ body {
 }
 
 .top .firstMenu li {
+    display: flex;
     padding: 5px;
-    border-top: 1px solid rgb(54, 124, 114);
+    margin: 1px;
+    justify-content: center;
+    width: 110px;
+    border-radius: 5px;
 }
 
 .top .firstMenu li:hover {
-    
     background: rgba(0, 0, 0, 0.2);
-}
-
-.top .firstMenu li:first-child {
-    border-top: 0px;
+    transition: .2s;
 }
 
 .main .about-content {
