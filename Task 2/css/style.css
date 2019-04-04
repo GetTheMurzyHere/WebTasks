@@ -84,6 +84,10 @@ body {
     opacity: 1;
 }
 
+.top .firstMenu > ul :last-child:focus {
+    background: rgb(228, 133, 133);
+}
+
 .top #secondMenu {
     visibility: hidden;
     position: absolute;
@@ -92,7 +96,7 @@ body {
     opacity: 0;
 }
 
-#secondMenu a {
+.top #secondMenu a {
     text-decoration: none;
 }
 
