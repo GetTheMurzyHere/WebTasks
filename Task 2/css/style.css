@@ -23,6 +23,7 @@ body {
     width: 8vw;
     border-radius: 100px;
     height: 4vh;
+    transition: .2s;    
 }
 
 .menu:hover > .firstMenu {
@@ -30,12 +31,16 @@ body {
     opacity: 1;
 }
 
+.menu:hover > .menuButton {
+    background: rgb(84, 179, 164);
+}
+
 .menu {
     cursor: pointer;
 }
 
 .top .firstMenu {
-    margin-top: 2px;
+    margin-top: 1px; 
     display: flex;
     visibility: hidden;
     opacity: 0;
@@ -57,16 +62,21 @@ body {
 
 .top .firstMenu li {
     display: flex;
+    justify-content: center;
     padding: 5px;
     margin: 1px;
-    justify-content: center;
     width: 110px;
     border-radius: 5px;
 }
 
 .top .firstMenu li:hover {
     background: rgba(0, 0, 0, 0.2);
-    transition: .2s;
+    transition: .4s;
+}
+
+.top .firstMenu li:focus {
+    background: rgb(102, 216, 199);
+    outline: none;
 }
 
 .main .about-content {
@@ -145,4 +155,5 @@ body {
 
 .meme img {
     height: 375px;
+    border-radius: 10px
 }
