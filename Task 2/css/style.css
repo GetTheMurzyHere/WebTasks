@@ -57,7 +57,7 @@ body {
     transition: all .2s;
 }
 
-.top .firstMenu ul,li {
+.top .firstMenu ul, li {
     padding: 0;
     margin: 0;
     list-style: none;
@@ -84,13 +84,16 @@ body {
 }
 
 .top #secondMenu {
-    position: relative;
-}
-
-.top #secondMenu {
+    visibility: hidden;
     position: absolute;
     left: 125px;
     top: -4;
+    opacity: 0;
+}
+
+.top .firstMenu > ul > li:focus #secondMenu{
+    visibility: visible;
+    opacity: 1;
 }
 
 .main .about-content {
