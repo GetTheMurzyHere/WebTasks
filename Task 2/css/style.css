@@ -14,6 +14,20 @@ body {
     justify-content: center;
 }
 
+.top .menuBlock {
+    display: flex;
+}
+
+.top .firstMenu li ul li {
+    position: relative;
+}
+
+.top .firstMenu li ul {
+    position: absolute;
+    left: 125px;
+    top: 0;
+}
+
 .top .menuButton {
     display: flex;
     justify-content: center;
@@ -26,16 +40,16 @@ body {
     transition: .2s;    
 }
 
-.menu:hover > .firstMenu {
+.top .menu:hover .firstMenu {
     visibility: visible;
     opacity: 1;
 }
 
-.menu:hover > .menuButton {
+.top .menu:hover .menuButton {
     background: rgb(84, 179, 164);
 }
 
-.menu {
+.top .menu {
     cursor: pointer;
 }
 
