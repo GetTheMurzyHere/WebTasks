@@ -10,28 +10,62 @@ body {
     width: 100vw;
     height: 14vh;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
 }
 
-.top .nav-item {
+.top .menuButton {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-style: solid;
+    background: rgb(167, 202, 197);
+    width: 8vw;
+    border-radius: 100px;
+    height: 4vh;
 }
 
-.top .nav-item > a {
-    text-decoration: none;
-    color: black;
-    width: 110px;
+.menu:hover > .firstMenu {
+    display: flex;
+    opacity: 1;
+}
+
+.menu {
+    cursor: pointer;
+}
+
+.top .firstMenu {
+    margin-top: 2px;
+    display: none;
+    opacity: 0;
+    justify-content: center;
+    position: absolute;
+    width: 8vw;
+    border: 3px double rgb(113, 172, 163);
     border-radius: 10px;
-    text-align: center;
-    padding: 15px;
-    background: gray;
-    transition: .3s;
+    background: rgb(207, 228, 225);
+    transition: all .3s;
 }
 
-.top .nav-item > a:hover {
-    background: #A69CAC;
+.top .firstMenu ul,li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    color: rgb(54, 124, 114);
+}
+
+.top .firstMenu li {
+    padding: 5px;
+    border-top: 1px solid rgb(54, 124, 114);
+}
+
+.top .firstMenu li:hover {
+    
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.top .firstMenu li:first-child {
+    border-top: 0px;
 }
 
 .main .about-content {
@@ -79,11 +113,18 @@ body {
     align-items: center;
 }
 
+
+.sidebar {
+    display: flex;
+    justify-content: center;
+}
+
 .banners a {
     display: grid;
     grid-auto-flow: column;
     justify-content: center;
     height: 22vh;
+    width: 150px;
 }
 
 .banners a img {
