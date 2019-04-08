@@ -10,3 +10,7 @@ header {
 .carousel-item > img{
     height: 200px;
 }
+
+.cards {
+    padding: 0;
+}
