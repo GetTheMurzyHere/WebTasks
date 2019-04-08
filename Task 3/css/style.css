@@ -15,10 +15,28 @@ header {
     height: 200px;
 }
 
+.carousel-indicators {
+    cursor: pointer;
+}
+
 .cards {
     padding: 0;
 }
 
 .card-body {
     background: rgb(240, 238, 238);
+}
+
+.rating {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    width: 90%;
+    padding: 8px;
+    border-left: none;
+    margin-left: 1px;
+    border-radius: 0 5px 5px 0;
+}
+
+.modal-body {
+    padding: 0px;
+    margin: 20px;
 }
