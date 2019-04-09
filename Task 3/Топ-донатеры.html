@@ -20,12 +20,64 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <i class="fab fa-accessible-icon navbar-brand ml-3"></i>
             <ol class="breadcrumb mt-3 ml-2 bg-transparent">
-                <li class="breadcrumb-item active" aria-current="page"><a href="Главная.html" id="other-page">Главная</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="Главная.html"
+                        id="other-page">Главная</a></li>
                 <li class="breadcrumb-item" id="current-page">Топ-донатеры</li>
             </ol>
         </nav>
     </header>
+    <div class="container-fluid mt-3">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+                    aria-controls="nav-home" aria-selected="true">Пожертвования Егорке</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+                    aria-controls="nav-profile" aria-selected="false">Пожертвования Артёмке</a>
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+                    aria-controls="nav-contact" aria-selected="false">Пожертвования Роде</a>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry the Bird</td>
+                            <td>@twitter</td>
+                            <td>asdasdasd</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
 
+            </div>
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+
+            </div>
+        </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>

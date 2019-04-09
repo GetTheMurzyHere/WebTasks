@@ -53,3 +53,7 @@ header ol li {
 #current-page {
     color: rgb(223, 223, 223)
 }
+
+.table td, .table th, .table thead th {
+    border: none;
+}
