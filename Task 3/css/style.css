@@ -41,6 +41,14 @@ header {
     margin: 20px;
 }
 
-.breadcrump-item > a {
-    font-size: 1000px;
+header ol li {
+    font-size: 20px
+}
+
+#other-page {
+    color: rgb(87, 140, 253);
+}
+
+#current-page {
+    color: rgb(221, 194, 194)
 }
