@@ -69,3 +69,20 @@ header ol li {
 .top3 {
     background: #cd80327e;
 }
+
+.main-car {
+    overflow: hidden;
+}
+
+.main-car > img {
+    transition: all 5s ease-out;
+    -o-transition: all 5s ease-out;
+    -webkit-transition: all 5s ease-out;
+    cursor: pointer;
+}
+
+.main-car > img:hover {
+    transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -o-transform: scale(1.5);
+}
