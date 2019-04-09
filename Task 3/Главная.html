@@ -18,27 +18,12 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <i class="fab fa-accessible-icon navbar-brand"></i>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Главная<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
-                    </li>
-                </ul>
-            </div>
+            <i class="fab fa-accessible-icon navbar-brand ml-3"></i>
+                <ol class="breadcrumb mt-3 ml-2 bg-transparent">
+                    <li class="breadcrumb-item active" aria-current="page">Главная</li>
+                    <li class="breadcrumb-item"><a href="#" class="text-info">Library</a></li>
+                    <li class="breadcrumb-item"><a href="#" class="text-info">Data</a></li>
+                </ol>
         </nav>
     </header>
 
@@ -153,9 +138,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Федеральный портал</h5>
                     <p class="card-text">На федеральном портале нашего ресурса вы можете найти нужную информацию.</p>
-                    <div class="cardButton align-self-end">
-                        <a href="https://vk.com/mkn_sila" class="btn btn-primary">Перейти</a>
-                    </div>
+                    <a href="https://vk.com/mkn_sila" class="btn btn-primary">Перейти</a>
 
                 </div>
             </div>
@@ -174,7 +157,7 @@
                     <div class="otherProjectBtns d-flex justify-content-between">
                         <a href="https://getthemurzyhere.github.io/" class="btn btn-primary">Перейти</a>
 
-                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                        <button type="button" class="btn btn-success" data-toggle="modal"
                             data-target="#exampleModal">Оценить</button>
 
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
@@ -255,7 +238,8 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-dismiss="modal">Закрыть</button>
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Отправить</button>
+                                        <button type="button" class="btn btn-primary"
+                                            data-dismiss="modal">Отправить</button>
                                     </div>
                                 </div>
                             </div>

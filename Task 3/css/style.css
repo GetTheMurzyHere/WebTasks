@@ -40,3 +40,7 @@ header {
     padding: 0px;
     margin: 20px;
 }
+
+.breadcrump-item > a {
+    font-size: 1000px;
+}
