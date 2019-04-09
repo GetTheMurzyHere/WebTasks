@@ -86,3 +86,13 @@ header ol li {
     -moz-transform: scale(1.5);
     -o-transform: scale(1.5);
 }
+
+@media (max-width: 991px) {
+    .cards {
+        justify-content: space-around !important;
+    }
+    
+    .card {
+        margin-bottom: 2rem;
+    }
+}
