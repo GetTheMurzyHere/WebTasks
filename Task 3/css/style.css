@@ -47,8 +47,9 @@ header ol li {
 
 #other-page {
     color: rgb(87, 140, 253);
+    text-decoration: none;
 }
 
 #current-page {
-    color: rgb(221, 194, 194)
+    color: rgb(223, 223, 223)
 }
