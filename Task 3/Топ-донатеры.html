@@ -18,12 +18,31 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <i class="fab fa-accessible-icon navbar-brand ml-3"></i>
-            <ol class="breadcrumb mt-3 ml-2 bg-transparent">
-                <li class="breadcrumb-item active" aria-current="page"><a href="Главная.html"
-                        id="other-page">Главная</a></li>
-                <li class="breadcrumb-item" id="current-page">Топ-донатеры</li>
-            </ol>
+            <div class="container-fluid d-flex align-items-center">
+                <i class="fab fa-accessible-icon navbar-brand ml-3"></i>
+                <ol class="breadcrumb mt-3 ml-2 bg-transparent">
+                    <li class="breadcrumb-item active" aria-current="page" id="current-page">Главная</li>
+                    <li class="breadcrumb-item"><a href="Топ-донатеры.html" id="other-page">Топ-донатеры</a></li>
+                </ol>
+                <div class="ml-auto profile-icon mr-5">
+                    <i class="far fa-user-circle navbar-brand">
+                        <div class="dropdown-menu" id="first-menu">
+                            <a class="dropdown-item" data-container="body" data-trigger="hover"
+                                style="background: rgba(255, 0, 0, 0.2);" data-toggle="popover" data-placement="left"
+                                data-content="На данный момент авторизироваться невозможно, приносим извинения за доставленные неудобства.">
+                                Авторизироваться
+                            </a>
+                            <a class="dropdown-item" id="second-menu-btn" tabindex="0">
+                                Задания
+                            </a>
+                            <div class="dropdown-menu" id="second-menu">
+                                <a class="dropdown-item" href="#">Задание 2</a>
+                                <a class="dropdown-item" href="#">Задание 3</a>
+                            </div>
+                        </div>
+                    </i>
+                </div>
+            </div>
         </nav>
     </header>
     <div class="container-fluid mt-3">
@@ -39,7 +58,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="input-group mb-3">
-                                <span class="input-group-text">Имя</span>
+                            <span class="input-group-text">Имя</span>
                             <input type="text" class="form-control" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group mb-3">
