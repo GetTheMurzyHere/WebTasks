@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <link rel="stylesheet" href="css/style.css">
 
     <title>Главная</title>
@@ -25,12 +26,14 @@
                     <li class="breadcrumb-item"><a href="Топ-донатеры.html" id="other-page">Топ-донатеры</a></li>
                 </ol>
                 <div class="ml-auto profile-icon mr-5">
-                    <i class="far fa-user-circle navbar-brand" tabindex="0">
+                    <i class="far fa-user-circle navbar-brand">
                         <div class="dropdown-menu" id="first-menu">
-                            <h6 class="dropdown-item">
+                            <a class="dropdown-item" data-container="body" data-trigger="hover" data-toggle="popover"
+                                data-placement="left"
+                                data-content="На данный момент авторизироваться невозможно, приносим извинения за доставленные неудобства.">
                                 Авторизироваться
-                            </h6>
-                            <h6 class="dropdown-item">Задания</h6>
+                        </a>
+                            <a class="dropdown-item" href="#">Another action</a>
                         </div>
                     </i>
                 </div>
@@ -230,6 +233,7 @@
                     </div>
                 </div>
             </div>
+
             <footer>
                 <div class="d-flex justify-content-between cards flex-wrap container mt-3">
                     <div class="card" style="width: 18rem;">
@@ -352,7 +356,9 @@
                         </div>
                     </div>
                 </div>
+
             </footer>
+
 
             <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
                 integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -363,6 +369,7 @@
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
                 integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
                 crossorigin="anonymous"></script>
+            <script src="js/script.js"></script>
 </body>
 
 </html>

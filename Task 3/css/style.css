@@ -105,13 +105,17 @@ header ol li {
     display: none;
 }
 
-.profile-icon > i:focus {
-    outline: none;
+#first-menu > a > div {
+    display: none;
 }
 
-.profile-icon > i:focus #first-menu {
+.profile-icon > i:hover #first-menu {
     display: grid;
     top: 77%;
     left: auto;
-    right: 26px;
+    right: 28px;
+}
+
+.dropdown-item {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 }
