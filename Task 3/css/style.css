@@ -96,3 +96,17 @@ header ol li {
         margin-bottom: 2rem;
     }
 }
+
+.profile-icon {
+    cursor: pointer;
+}
+
+#first-menu {
+    display: none; 
+    left: 88%; 
+    top: 11%;
+}
+
+.profile-icon:hover #first-menu {
+    display: grid;
+}
