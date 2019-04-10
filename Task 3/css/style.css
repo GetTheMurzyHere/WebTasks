@@ -102,18 +102,38 @@ header ol li {
 }
 
 #first-menu {
-    display: none;
+    display: grid !important;
+    visibility: hidden;
+    top: 70%;
+    left: auto;
+    right: 24px;
+    transition: 1s all;
 }
 
 #first-menu > a > div {
     display: none;
 }
 
-.profile-icon > i:hover #first-menu {
+#second-menu {
+    display: none;
+    width: 183px;
+}
+
+#second-menu:hover {
+    display: grid !important;   
+}
+
+#second-menu-btn {
+    outline: none;
+}
+
+#second-menu-btn:focus + #second-menu {
     display: grid;
+}
+
+.profile-icon > i:hover #first-menu {
+    visibility: visible;
     top: 77%;
-    left: auto;
-    right: 28px;
 }
 
 .dropdown-item {

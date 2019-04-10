@@ -28,12 +28,19 @@
                 <div class="ml-auto profile-icon mr-5">
                     <i class="far fa-user-circle navbar-brand">
                         <div class="dropdown-menu" id="first-menu">
-                            <a class="dropdown-item" data-container="body" data-trigger="hover" data-toggle="popover"
-                                data-placement="left"
+                            <a class="dropdown-item" data-container="body" data-trigger="hover"
+                                style="background: rgba(255, 0, 0, 0.2);" data-toggle="popover" data-placement="left"
                                 data-content="На данный момент авторизироваться невозможно, приносим извинения за доставленные неудобства.">
                                 Авторизироваться
-                        </a>
-                            <a class="dropdown-item" href="#">Another action</a>
+                            </a>
+                            <a class="dropdown-item" id="second-menu-btn" tabindex="0">
+                                Задания
+                            </a>
+                            <div class="dropdown-menu" id="second-menu">
+                                <h6 class="dropdown-header">Dropdown header</h6>
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                            </div>
                         </div>
                     </i>
                 </div>
