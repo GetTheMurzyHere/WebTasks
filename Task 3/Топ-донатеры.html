@@ -27,6 +27,41 @@
         </nav>
     </header>
     <div class="container-fluid mt-3">
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Транзакция</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Name" aria-label="Name"
+                                aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">&#8381;</span>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Комментарий</span>
+                            </div>
+                            <textarea class="form-control" aria-label="With textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Пожертвовать</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
@@ -70,55 +105,170 @@
                         </tr>
                     </tbody>
                 </table>
+                <hr>
+                <div class="d-flex justify-content-center pt-2" style="position: sticky; top: 0;">
+                    <button type="button" class="btn btn-primary w-100 mb-2" data-toggle="modal"
+                        data-target="#exampleModalCenter">❗ Пожертвовать Егору ❗</button>
+                </div>
+                <div class="text-justify">
+                    Далеко-далеко за словесными горами в стране гласных и согласных, живут рыбные тексты. Это силуэт
+                    ipsum не
+                    гор своих однажды власти, необходимыми подпоясал, переписывается буквоград переулка заманивший
+                    журчит
+                    заглавных большого, ручеек путь живет там большой рыбными от всех злых. Проектах снова буквенных
+                    обеспечивает реторический, раз моей, безорфографичный вопрос меня великий пояс, ipsum переулка
+                    инициал. Свое
+                    вдали, эта вопрос всеми живет, строчка то злых ipsum своих инициал напоивший безорфографичный текст
+                    предупредила переулка путь переписывается знаках на берегу снова не имеет она свой дороге. Вдали ты
+                    курсивных там языкового имеет. Путь языком имеет использовало что букв живет продолжил, даже сих
+                    текст
+                    предупреждал приставка журчит! Проектах речью большого, свое своих осталось на берегу коварный
+                    рекламных
+                    запятой города инициал над щеке подзаголовок языком всеми которой семантика взобравшись маленький
+                    точках
+                    обеспечивает буквенных строчка однажды! Ведущими пунктуация букв рукописи семантика путь ему
+                    единственное?
+                    До напоивший послушавшись маленькая дороге рекламных ее пунктуация даль моей деревни последний по
+                    всей
+                    встретил, своего имеет? Курсивных вскоре грамматики заголовок языком даль, от всех скатился! Однажды
+                    предложения рукопись большой рукописи последний на берегу даль алфавит необходимыми взгляд вопрос,
+                    встретил
+                    он одна речью? Пор пунктуация переписывается своего парадигматическая речью, города гор подпоясал
+                    lorem свое
+                    его переписали все вопроса выйти взгляд снова! Журчит составитель рукопись запятой мир это не, lorem
+                    моей
+                    всемогущая бросил образ путь собрал он, снова рукописи то заголовок предупредила инициал, ты
+                    осталось
+                    подпоясал однажды переписывается решила свою вдали.
+                </div>
             </div>
-            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"></div>
-            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"></div>
-        </div>
-        <hr>
-        <div class="d-flex justify-content-center pt-2" style="position: sticky; top: 0;">
-            <button type="button" class="btn btn-primary w-100 mb-2" data-toggle="modal"
-                data-target="#exampleModalCenter">❗ Пожертвовать Егору ❗</button>
-        </div>
-        <div class="text-justify">
-            Далеко-далеко за словесными горами в стране гласных и согласных, живут рыбные тексты. Это силуэт ipsum не
-            гор своих однажды власти, необходимыми подпоясал, переписывается буквоград переулка заманивший журчит
-            заглавных большого, ручеек путь живет там большой рыбными от всех злых. Проектах снова буквенных
-            обеспечивает реторический, раз моей, безорфографичный вопрос меня великий пояс, ipsum переулка инициал. Свое
-            вдали, эта вопрос всеми живет, строчка то злых ipsum своих инициал напоивший безорфографичный текст
-            предупредила переулка путь переписывается знаках на берегу снова не имеет она свой дороге. Вдали ты
-            курсивных там языкового имеет. Путь языком имеет использовало что букв живет продолжил, даже сих текст
-            предупреждал приставка журчит! Проектах речью большого, свое своих осталось на берегу коварный рекламных
-            запятой города инициал над щеке подзаголовок языком всеми которой семантика взобравшись маленький точках
-            обеспечивает буквенных строчка однажды! Ведущими пунктуация букв рукописи семантика путь ему единственное?
-            До напоивший послушавшись маленькая дороге рекламных ее пунктуация даль моей деревни последний по всей
-            встретил, своего имеет? Курсивных вскоре грамматики заголовок языком даль, от всех скатился! Однажды
-            предложения рукопись большой рукописи последний на берегу даль алфавит необходимыми взгляд вопрос, встретил
-            он одна речью? Пор пунктуация переписывается своего парадигматическая речью, города гор подпоясал lorem свое
-            его переписали все вопроса выйти взгляд снова! Журчит составитель рукопись запятой мир это не, lorem моей
-            всемогущая бросил образ путь собрал он, снова рукописи то заголовок предупредила инициал, ты осталось
-            подпоясал однажды переписывается решила свою вдали.
-        </div>
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th scope="col"><i class="fas fa-trophy"></i></th>
+                            <th scope="col">Топ-1 месяца<span class="badge top1 ml-1">WOW!</span></th>
+                            <th scope="col">Топ-2 месяца<span class="badge top2 ml-1">GREAT!</span></th>
+                            <th scope="col">Топ-3 месяца<span class="badge top3 ml-1">NICE!</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Имя</th>
+                            <td class="top1">Милана</td>
+                            <td class="top2">Полiна</td>
+                            <td class="top3">Джек</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Никнейм</th>
+                            <td class="top1">Zay4ik</td>
+                            <td class="top2">Palendopal</td>
+                            <td class="top3">AngryMF</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Сумма, &#8381;</th>
+                            <td class="top1">21.000</td>
+                            <td class="top2">15.000</td>
+                            <td class="top3">10.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <div class="d-flex justify-content-center pt-2" style="position: sticky; top: 0;">
+                    <button type="button" class="btn btn-primary w-100 mb-2" data-toggle="modal"
+                        data-target="#exampleModalCenter">❗ Пожертвовать Артёму ❗</button>
+                </div>
+                <div class="text-justify">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam optio voluptate, distinctio ex
+                    eaque porro rem laborum quas beatae omnis soluta nesciunt aut eos tempore consequatur laudantium
+                    error perferendis. Recusandae quo tempora, reprehenderit tenetur sunt odit. Nostrum nisi ipsam ea
+                    molestias alias magni, fugiat voluptatum harum quas iure velit, accusamus nobis inventore. Dolores
+                    aspernatur esse optio neque vitae maiores porro dicta incidunt unde expedita hic nostrum ea non
+                    minima necessitatibus cumque repudiandae earum, alias enim cupiditate sit deserunt excepturi.
+                    Inventore fuga exercitationem ipsa maxime in, praesentium, facilis eaque eius harum laudantium
+                    similique commodi nulla quo numquam cupiditate sed minima quibusdam vero vel ipsam deserunt natus?
+                    Maxime, cumque, hic rerum molestias nihil nemo necessitatibus fuga similique nobis sapiente labore
+                    perferendis minima facere laborum beatae optio. Quisquam nostrum perferendis similique tempore quis
+                    labore, inventore neque quam deserunt aut voluptatibus cumque optio commodi? Alias nihil maiores
+                    repellat odit explicabo nam magni exercitationem minus sit laborum, ex fugit eius aliquam
+                    distinctio, aliquid possimus mollitia magnam maxime rerum quibusdam totam optio perferendis
+                    assumenda labore? Aperiam repudiandae sed nemo ducimus ratione adipisci amet beatae magni dolorem
+                    quae possimus voluptate asperiores eveniet illum consequuntur voluptates, nihil totam temporibus,
+                    perferendis minus autem voluptatem soluta est placeat. Provident eum voluptas reprehenderit tempora
+                    perspiciatis fugit quam id nihil autem, ab, aperiam velit repellat aspernatur sit.
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th scope="col"><i class="fas fa-trophy"></i></th>
+                            <th scope="col">Топ-1 месяца<span class="badge top1 ml-1">WOW!</span></th>
+                            <th scope="col">Топ-2 месяца<span class="badge top2 ml-1">GREAT!</span></th>
+                            <th scope="col">Топ-3 месяца<span class="badge top3 ml-1">NICE!</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Имя</th>
+                            <td class="top1">Наташка</td>
+                            <td class="top2">Димасик</td>
+                            <td class="top3">Вованчег</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Никнейм</th>
+                            <td class="top1">K@k@sh</td>
+                            <td class="top2">LoveSlav</td>
+                            <td class="top3">ПьюдиПАААЙ</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Сумма, &#8381;</th>
+                            <td class="top1">39.000</td>
+                            <td class="top2">1.000</td>
+                            <td class="top3">500</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <div class="d-flex justify-content-center pt-2" style="position: sticky; top: 0;">
+                    <button type="button" class="btn btn-primary w-100 mb-2" data-toggle="modal"
+                        data-target="#exampleModalCenter">❗ Пожертвовать Роде ❗</button>
+                </div>
+                <div class="text-justify">
+                    Далеко-далеко за словесными горами в стране гласных и согласных, живут рыбные тексты. Это силуэт
+                    ipsum не
+                    гор своих однажды власти, необходимыми подпоясал, переписывается буквоград переулка заманивший
+                    журчит
+                    заглавных большого, ручеек путь живет там большой рыбными от всех злых. Проектах снова буквенных
+                    обеспечивает реторический, раз моей, безорфографичный вопрос меня великий пояс, ipsum переулка
+                    инициал. Свое
+                    вдали, эта вопрос всеми живет, строчка то злых ipsum своих инициал напоивший безорфографичный текст
+                    предупредила переулка путь переписывается знаках на берегу снова не имеет она свой дороге. Вдали ты
+                    курсивных там языкового имеет. Путь языком имеет использовало что букв живет продолжил, даже сих
+                    текст
+                    предупреждал приставка журчит! Проектах речью большого, свое своих осталось на берегу коварный
+                    рекламных
+                    запятой города инициал над щеке подзаголовок языком всеми которой семантика взобравшись маленький
+                    точках
+                    обеспечивает буквенных строчка однажды! Ведущими пунктуация букв рукописи семантика путь ему
+                    единственное?
+                    До напоивший послушавшись маленькая дороге рекламных ее пунктуация даль моей деревни последний по
+                    всей
+                    встретил, своего имеет? Курсивных вскоре грамматики заголовок языком даль, от всех скатился! Однажды
+                    предложения рукопись большой рукописи последний на берегу даль алфавит необходимыми взгляд вопрос,
+                    встретил
+                    он одна речью? Пор пунктуация переписывается своего парадигматическая речью, города гор подпоясал
+                    lorem свое
+                    его переписали все вопроса выйти взгляд снова! Журчит составитель рукопись запятой мир это не, lorem
+                    моей
+                    всемогущая бросил образ путь собрал он, снова рукописи то заголовок предупредила инициал, ты
+                    осталось
+                    подпоясал однажды переписывается решила свою вдали.
                 </div>
             </div>
         </div>
-        <hr>
+    </div>
+    <hr>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
