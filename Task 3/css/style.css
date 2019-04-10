@@ -102,16 +102,12 @@ header ol li {
 }
 
 #first-menu {
-    display: grid !important;
+    display: grid;
     visibility: hidden;
     top: 70%;
     left: auto;
     right: 24px;
-    transition: 1s all;
-}
-
-#first-menu > a > div {
-    display: none;
+    transition: 1s;
 }
 
 #second-menu {
@@ -120,7 +116,7 @@ header ol li {
 }
 
 #second-menu:hover {
-    display: grid !important;   
+    display: grid;   
 }
 
 #second-menu-btn {
