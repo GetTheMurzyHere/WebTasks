@@ -110,7 +110,8 @@ header ol li {
 }
 
 .profile-icon > i:focus #first-menu {
-    display: grid; 
-    left: 1338px; 
+    display: grid;
     top: 77%;
+    left: auto;
+    right: 26px;
 }
