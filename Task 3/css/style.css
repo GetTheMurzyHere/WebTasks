@@ -102,11 +102,15 @@ header ol li {
 }
 
 #first-menu {
-    display: none; 
-    left: 88%; 
-    top: 11%;
+    display: none;
 }
 
-.profile-icon:hover #first-menu {
-    display: grid;
+.profile-icon > i:focus {
+    outline: none;
+}
+
+.profile-icon > i:focus #first-menu {
+    display: grid; 
+    left: 1338px; 
+    top: 77%;
 }

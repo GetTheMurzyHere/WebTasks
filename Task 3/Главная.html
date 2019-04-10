@@ -24,14 +24,18 @@
                     <li class="breadcrumb-item active" aria-current="page" id="current-page">Главная</li>
                     <li class="breadcrumb-item"><a href="Топ-донатеры.html" id="other-page">Топ-донатеры</a></li>
                 </ol>
-                <i class="far fa-user-circle navbar-brand ml-auto profile-icon mr-5"></i>
+                <div class="ml-auto profile-icon mr-5">
+                    <i class="far fa-user-circle navbar-brand" tabindex="0">
+                        <div class="dropdown-menu" id="first-menu">
+                            <h6 class="dropdown-item">
+                                Авторизироваться
+                            </h6>
+                            <h6 class="dropdown-item">Задания</h6>
+                        </div>
+                    </i>
+                </div>
             </div>
         </nav>
-        <div class="dropdown-menu" id="first-menu">
-                <h6 class="dropdown-header">Dropdown header</h6>
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-              </div>
     </header>
     <div class="container mt-3">
         <div id="carouselExampleIndicators" class="carousel slide mb-3" data-ride="carousel" data-interval="3000">
@@ -350,15 +354,15 @@
                 </div>
             </footer>
 
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
 </body>
 
 </html>
