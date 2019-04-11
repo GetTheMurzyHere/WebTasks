@@ -54,19 +54,24 @@
                 <msqrt>
                     <mrow>
                         <mi>p</mi>
-                        <mo> * (</mo>
-                        <mi>p</mi>
-                        <mo>-</mo>
-                        <mi>a</mi>
-                        <mo>) * (</mo>
-                        <mi>p </mi>
-                        <mo>-</mo>
-                        <mi>b</mi>
-                        <mo>) * (</mo>
-                        <mi>p </mi>
-                        <mo>-</mo>
-                        <mi>c</mi>
-                        <mo>)</mo>
+                        <mo>*</mo>
+                        <mfenced separators="" open="(" close=")">
+                            <mi>p</mi>
+                            <mo>-</mo>
+                            <mi>a</mi>
+                        </mfenced>
+                        <mo>*</mo>
+                        <mfenced separators="" open="(" close=")">
+                            <mi>p</mi>
+                            <mo>-</mo>
+                            <mi>b</mi>
+                        </mfenced>
+                        <mo>*</mo>
+                        <mfenced separators="" open="(" close=")">
+                            <mi>p</mi>
+                            <mo>-</mo>
+                            <mi>c</mi>
+                        </mfenced>
                     </mrow>
                 </msqrt>
             </math>
@@ -108,13 +113,118 @@
             </math>
         </div>
         <div>
-
+            <math>
+                <mi>S</mi>
+                <mo>=</mo>
+                <mn>1</mn>
+                <mo>-</mo>
+                <mfrac>
+                    <mn>1</mn>
+                    <mn>2</mn>
+                </mfrac>
+                <mo>+</mo>
+                <mfrac>
+                    <mn>1</mn>
+                    <mn>4</mn>
+                </mfrac>
+                <mo>-</mo>
+                <mfrac>
+                    <mn>1</mn>
+                    <mn>8</mn>
+                </mfrac>
+                <mo>+</mo>
+                <mi>…</mi>
+                <mo>+</mo>
+                <msup>
+                    <mrow>
+                        <mfenced separators="" open="(" close=")">
+                            <mn>-1</mn>
+                        </mfenced>
+                    </mrow>
+                    <mi>n</mi>
+                </msup>
+                <mfrac>
+                    <mn>1</mn>
+                    <msup>
+                        <mn>2</mn>
+                        <mi>n</mi>
+                    </msup>
+                </mfrac>
+                <mo>=</mo>
+                <munderover>
+                    <mi>&#x03A3;</mi>
+                    <mrow>
+                        <mi>i</mi>
+                        <mo>=</mo>
+                        <mn>0</mn>
+                    </mrow>
+                    <mi>n</mi>
+                </munderover>
+                <msup>
+                    <mrow>
+                        <mfenced separators="" open="(" close=")">
+                            <mn>-1</mn>
+                        </mfenced>
+                    </mrow>
+                    <mi>i</mi>
+                </msup>
+                <mfrac>
+                    <mn>1</mn>
+                    <msup>
+                        <mn>2</mn>
+                        <mi>i</mi>
+                    </msup>
+                </mfrac>
+            </math>
         </div>
         <div>
-
+            <math>
+                <munderover>
+                    <mi>lim</mi>
+                    <mi>x → &#x221E</mi>
+                </munderover>
+                <mrow>
+                    <msup>
+                        <mrow>
+                            <mfenced separators="" open="(" close=")">
+                                <mn>1 </mn>
+                                <mo>+</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mi>a</mi>
+                                </mfrac>
+                            </mfenced>
+                        </mrow>
+                        <mi>a</mi>
+                    </msup>
+                </mrow>
+                <mo>=</mo>
+                <mi>e</mi>
+            </math>
         </div>
         <div>
-
+            <math>
+                <munderover>
+                    <mi>&#x222b;</mi>
+                    <mi>b</mi>
+                    <mi>a</mi>
+                </munderover>
+                <mi>f</mi>
+                <mfenced separators="" open="(" close=")">
+                    <mi>x</mi>
+                </mfenced>
+                <mi>dx</mi>
+                <mo>=</mo>
+                <mi>F</mi>
+                <mfenced separators="" open="(" close=")">
+                    <mi>b</mi>
+                </mfenced>
+                <mo>-</mo>
+                <mi>F</mi>
+                <mfenced separators="" open="(" close=")">
+                    <mi>a</mi>
+                </mfenced>
+            </math>
         </div>
     </div>
 
