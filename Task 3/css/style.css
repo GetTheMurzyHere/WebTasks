@@ -149,3 +149,7 @@ header ol li {
     height: 64px; 
     border-radius: 10px;
 }
+
+.otherProjectBtns > span{
+    visibility: hidden;
+}
