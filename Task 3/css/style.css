@@ -143,3 +143,9 @@ header ol li {
 .canvas {
     height: 550px;
 }
+
+.comment-image {
+    width: 64px; 
+    height: 64px; 
+    border-radius: 10px;
+}
