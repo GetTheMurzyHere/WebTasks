@@ -40,20 +40,20 @@
                                 полуоси</span>
                         </div>
                         <input type="number" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default">
+                            aria-describedby="inputGroup-sizing-default" id="a-length">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default b-length"
+                            <span class="input-group-text" id="inputGroup-sizing-default"
                                 style="width: 209px">Длина
                                 малой полуоси</span>
                         </div>
                         <input type="number" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default">
+                            aria-describedby="inputGroup-sizing-default" id="b-length">
                     </div>
                 </div>
                 <div class="enter-btn d-flex justify-content-end">
-                    <button type="button" class="btn btn-primary" onclick="">Enter</button>
+                    <button type="button" class="btn btn-primary" onclick="insertHTML(document.getElementById('a-length').value, document.getElementById('b-length').value);">Enter</button>
                 </div>
             </div>
             <div class="resultBlock d-flex justify-content-center align-items-center" style="width: 500px; height: 500px; border: 1px solid black">
@@ -61,8 +61,8 @@
                     <math>
                         <mi>S</mi>
                         <mo>=</mo>
+                        <mn id="insert-number"></mn>
                     </math>
-
                 </div>
             </div>
         </div>
