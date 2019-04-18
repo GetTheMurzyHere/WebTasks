@@ -36,14 +36,16 @@
                 <div class="d-flex flex-column">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Длина большой полуоси</span>
+                            <span class="input-group-text" id="inputGroup-sizing-default a-length">Длина большой
+                                полуоси</span>
                         </div>
                         <input type="number" class="form-control" aria-label="Sizing example input"
                             aria-describedby="inputGroup-sizing-default">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default" style="width: 209px">Длина
+                            <span class="input-group-text" id="inputGroup-sizing-default b-length"
+                                style="width: 209px">Длина
                                 малой полуоси</span>
                         </div>
                         <input type="number" class="form-control" aria-label="Sizing example input"
@@ -51,11 +53,17 @@
                     </div>
                 </div>
                 <div class="enter-btn d-flex justify-content-end">
-                    <button type="button" class="btn btn-primary">Enter</button>
+                    <button type="button" class="btn btn-primary" onclick="">Enter</button>
                 </div>
             </div>
-            <div class="resultBlock" style="width: 500px; height: 500px; border: 1px solid black">
+            <div class="resultBlock d-flex justify-content-center align-items-center" style="width: 500px; height: 500px; border: 1px solid black">
+                <div id="result-formula">
+                    <math>
+                        <mi>S</mi>
+                        <mo>=</mo>
+                    </math>
 
+                </div>
             </div>
         </div>
     </section>
