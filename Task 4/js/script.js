@@ -27,7 +27,26 @@ function square(a, b) {
 }
 
 function result(a, b) {
-    let number = document.getElementById('result');
-    number.innerHTML = '<span class="mn" id="MathJax-Span-5" style="font-family: MathJax_Main; padding-left: 0.272em;">' + square(a, b) + '</span>';
+    var number = document.getElementById('result');
+    number.innerHTML = "";
+    if (a == 0 || b == 0) {
+        if (a < 0 && b == 0 || a == 0 && b < 0) {
+            alert("Введены неверные данные!");
+            drawEllipse(a, b);
+            return;
+        }
+        let isWaste = confirm("Вы уверены, что не знаете того, что результатом будет 0?");
+        if (isWaste) {
+            number.innerHTML = '<span class="mn" id="MathJax-Span-5" style="font-family: MathJax_Main; padding-left: 0.272em;">' + 0 + '</span>'
+        }
+    }
+    else {
+        if (a < 0 || b < 0) {
+            alert("Введены неверные данные!");
+            drawEllipse(a, b);
+            return;
+        }
+        number.innerHTML = '<span class="mn" id="MathJax-Span-5" style="font-family: MathJax_Main; padding-left: 0.272em;">' + square(a, b) + '</span>';
+    }
     drawEllipse(a, b);
 }
