@@ -30,35 +30,11 @@
             </div>
         </nav>
     </header>
-    
+
     <section>
-        <div class="container-fluid d-flex justify-content-center align-items-center mt-5 mainBlock">
-            <div class="inputBlock mr-3">
-                <div class="d-flex flex-column">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default a-length">Длина большой
-                                полуоси, px</span>
-                        </div>
-                        <input type="number" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default" id="a-length">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default" style="width: 233px">Длина
-                                малой полуоси, px</span>
-                        </div>
-                        <input type="number" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default" id="b-length">
-                    </div>
-                </div>
-                <div class="enter-btn d-flex justify-content-end">
-                    <button type="button" class="btn btn-primary"
-                        onclick="result(document.getElementById('a-length').value, document.getElementById('b-length').value);">Enter</button>
-                </div>
-            </div>
+        <div class="container-fluid d-flex flex-column justify-content-center align-items-center main-block">
             <div class="resultBlock d-flex flex-column justify-content-center align-items-center"
-                style="width: 500px; height: 500px; border: 1px solid black">
+                style="width: 500px; height: 500px">
                 <canvas id="canvas" width="400px" height="400px"></canvas>
                 <div class="d-flex" id="result-formula">
                     <math>
@@ -77,6 +53,31 @@
                     </math>
                     <div id="result">
                     </div>
+                </div>
+            </div>
+
+            <div class="inputBlock container-fluid mt-2" style="padding: 0;">
+                <div class="d-flex flex-column">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default a-length">Длина большой
+                                полуоси, px</span>
+                        </div>
+                        <input type="number" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default" id="a-length">
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default" style="width: 233px">Длина
+                                малой полуоси, px</span>
+                        </div>
+                        <input type="number" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default" id="b-length">
+                    </div>
+                </div>
+                <div class="d-flex" style="padding: 0;">
+                    <button type="button" class="btn btn-primary container-fluid"
+                        onclick="result(document.getElementById('a-length').value, document.getElementById('b-length').value);">Enter</button>
                 </div>
             </div>
         </div>
