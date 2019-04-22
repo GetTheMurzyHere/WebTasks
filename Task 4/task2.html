@@ -32,17 +32,85 @@
     </header>
 
     <section>
-        <div class="resultBlock d-flex flex-column justify-content-center align-items-center"
+        <div class="resultBlock d-flex justify-content-center align-items-center"
             style="width: 500px; height: 200px">
-            <div class="d-flex" id="result-formula">
+            <div class="d-flex" id="sum-formula">
                 <math>
                     <mi class="MathClass-op">sin</mi>
                     <mo>(</mo>
                     <mn id="argumentX"></mn>
                     <mo>)</mo>
+                    <mpadded width="+8px">
+                        <mo>=</mo>
+                    </mpadded>
+                <mi>x</mi>
+                <mo>-</mo>
+                <mfrac>
+                    <msup>
+                        <mi>x</mi>
+                        <mi>3</mi>
+                    </msup>
+                    <mrow>
+                        <mn>3</mn>
+                        <mo>!</mo>
+                    </mrow>
+                </mfrac>
+                <mo>+</mo>
+                <mfrac>
+                    <msup>
+                        <mi>x</mi>
+                        <mi>5</mi>
+                    </msup>
+                    <mrow>
+                        <mn>5</mn>
+                        <mo>!</mo>
+                    </mrow>
+                </mfrac>
+                <mo>-</mo>
+                <mo>...</mo>
+                <mo>=</mo>
+                <munderover>
+                    <mi>&#x03A3;</mi>
+                    <mrow>
+                        <mi>n</mi>
+                        <mo>=</mo>
+                        <mn>0</mn>
+                    </mrow>
+                    <mi>&#x221E;</mi>
+                </munderover>
+                <msup>
+                    <mrow>
+                        <mfenced>
+                            <mn>-1</mn>
+                        </mfenced>
+                    </mrow>
+                    <mi>n</mi>
+                </msup>
+                <mfrac>
+                    <msup>
+                        <mi>x</mi>
+                        <mrow>
+                            <mn>2</mn>
+                            <mi>n</mi>
+                            <mo>+</mo>
+                            <mn>1</mn>
+                        </mrow>
+                    </msup>
+                    <mrow>
+                        <mfenced separators="">
+                            <mn>2</mn>
+                            <mi>n</mi>
+                            <mo>+</mo>
+                            <mn>1</mn>
+                        </mfenced>
+                        <mo>!</mo>
+                    </mrow>
+                </mfrac>
+                <mo>=</mo>
                 </math>
-                <div id="result">
-                </div>
+            </div>
+            <div id="result-sum">
+
             </div>
         </div>
         <div class="input-block container-fluid" style="padding: 0;">
@@ -55,19 +123,19 @@
                         aria-describedby="inputGroup-sizing-default" id="argumentX-value">
                 </div>
             </div>
-            <div class="input-group mb-3">
+            <div class="input-group mb-2">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01">Точность</label>
                 </div>
-                <select class="custom-select" id="inputGroupSelect01">
-                    <option value="1">Маленькая (3 слагаемое)</option>
-                    <option value="2">Средняя (5 слагаемых)</option>
-                    <option value="3">Большая (7 слагаемых)</option>
+                <select class="custom-select" id="accuracy">
+                    <option value="3">Маленькая (3 слагаемое)</option>
+                    <option value="5">Средняя (5 слагаемых)</option>
+                    <option value="7">Большая (7 слагаемых)</option>
                 </select>
             </div>
             <div class="d-flex" style="padding: 0;">
                 <button type="button" class="btn btn-primary container-fluid"
-                    onclick="result(document.getElementById('argumentX-value').value);">Enter</button>
+                    onclick="result(document.getElementById('argumentX-value').value, document.getElementById('accuracy').value);">Enter</button>
             </div>
         </div>
     </section>
