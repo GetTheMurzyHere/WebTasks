@@ -25,3 +25,7 @@ section {
 .task-btn:hover {
     transform: scale(1.25);
 }
+
+#enter-btn:focus #argumentX-value:invalid {
+    border-color: red;  
+}
