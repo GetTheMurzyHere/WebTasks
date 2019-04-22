@@ -29,6 +29,10 @@ function square(a, b) {
 function result(a, b) {
     var number = document.getElementById('result');
     number.innerHTML = "";
+    if (a == "" || b == "") {
+        alert("Введите значения длин!");
+        return;
+    }
     if (a == 0 || b == 0) {
         if (a < 0 && b == 0 || a == 0 && b < 0) {
             alert("Введены неверные данные!");
