@@ -3,7 +3,6 @@ function factorial(n) {
 }
 
 function result(x, count) {
-    x = x * 180 / Math.PI;
     let sum = 0;
     let exp = 1;
     for (let i = 1; i <= count; i++) {
