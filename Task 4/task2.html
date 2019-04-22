@@ -32,85 +32,83 @@
     </header>
 
     <section>
-        <div class="resultBlock d-flex justify-content-center align-items-center"
-            style="width: 500px; height: 200px">
+        <div class="resultBlock d-flex justify-content-center align-items-center" style="width: 500px; height: 200px">
             <div class="d-flex" id="sum-formula">
                 <math>
                     <mi class="MathClass-op">sin</mi>
                     <mo>(</mo>
-                    <mn id="argumentX"></mn>
+                    <mi>x</mi>
                     <mo>)</mo>
                     <mpadded width="+8px">
                         <mo>=</mo>
                     </mpadded>
-                <mi>x</mi>
-                <mo>-</mo>
-                <mfrac>
-                    <msup>
-                        <mi>x</mi>
-                        <mi>3</mi>
-                    </msup>
-                    <mrow>
-                        <mn>3</mn>
-                        <mo>!</mo>
-                    </mrow>
-                </mfrac>
-                <mo>+</mo>
-                <mfrac>
-                    <msup>
-                        <mi>x</mi>
-                        <mi>5</mi>
-                    </msup>
-                    <mrow>
-                        <mn>5</mn>
-                        <mo>!</mo>
-                    </mrow>
-                </mfrac>
-                <mo>-</mo>
-                <mo>...</mo>
-                <mo>=</mo>
-                <munderover>
-                    <mi>&#x03A3;</mi>
-                    <mrow>
-                        <mi>n</mi>
-                        <mo>=</mo>
-                        <mn>0</mn>
-                    </mrow>
-                    <mi>&#x221E;</mi>
-                </munderover>
-                <msup>
-                    <mrow>
-                        <mfenced>
-                            <mn>-1</mn>
-                        </mfenced>
-                    </mrow>
-                    <mi>n</mi>
-                </msup>
-                <mfrac>
-                    <msup>
-                        <mi>x</mi>
+                    <mi>x</mi>
+                    <mo>-</mo>
+                    <mfrac>
+                        <msup>
+                            <mi>x</mi>
+                            <mi>3</mi>
+                        </msup>
                         <mrow>
-                            <mn>2</mn>
-                            <mi>n</mi>
-                            <mo>+</mo>
-                            <mn>1</mn>
+                            <mn>3</mn>
+                            <mo>!</mo>
                         </mrow>
-                    </msup>
-                    <mrow>
-                        <mfenced separators="">
-                            <mn>2</mn>
+                    </mfrac>
+                    <mo>+</mo>
+                    <mfrac>
+                        <msup>
+                            <mi>x</mi>
+                            <mi>5</mi>
+                        </msup>
+                        <mrow>
+                            <mn>5</mn>
+                            <mo>!</mo>
+                        </mrow>
+                    </mfrac>
+                    <mo>-</mo>
+                    <mo>...</mo>
+                    <mo>=</mo>
+                    <munderover>
+                        <mi>&#x03A3;</mi>
+                        <mrow>
                             <mi>n</mi>
-                            <mo>+</mo>
-                            <mn>1</mn>
-                        </mfenced>
-                        <mo>!</mo>
-                    </mrow>
-                </mfrac>
-                <mo>=</mo>
+                            <mo>=</mo>
+                            <mn>0</mn>
+                        </mrow>
+                        <mi>&#x221E;</mi>
+                    </munderover>
+                    <msup>
+                        <mrow>
+                            <mfenced>
+                                <mn>-1</mn>
+                            </mfenced>
+                        </mrow>
+                        <mi>n</mi>
+                    </msup>
+                    <mfrac>
+                        <msup>
+                            <mi>x</mi>
+                            <mrow>
+                                <mn>2</mn>
+                                <mi>n</mi>
+                                <mo>+</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </msup>
+                        <mrow>
+                            <mfenced separators="">
+                                <mn>2</mn>
+                                <mi>n</mi>
+                                <mo>+</mo>
+                                <mn>1</mn>
+                            </mfenced>
+                            <mo>!</mo>
+                        </mrow>
+                    </mfrac>
+                    <mo>=</mo>
                 </math>
             </div>
-            <div id="result-sum">
-
+            <div id="result-sum" class="d-flex">
             </div>
         </div>
         <div class="input-block container-fluid" style="padding: 0;">

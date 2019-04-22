@@ -3,8 +3,6 @@ function factorial(n) {
 }
 
 function result(x, count) {
-    let xArgument = document.getElementById('argumentX');
-    xArgument.innerHTML = '<span class="mn" id="MathJax-Span-5" style="font-family: MathJax_Main; padding-left: 0.272em; padding-right: 0.272em">' + x + '</span>';
     let sum = 0;
     let exp = 1;
     for (let i = 1; i <= count; i++) {
@@ -17,5 +15,9 @@ function result(x, count) {
         exp += 2;
     }
     let finalSum = document.getElementById('result-sum');
-    finalSum.innerHTML += '<span class="mn" id="MathJax-Span-5" style="font-family: MathJax_Main; padding-left: 0.272em; padding-right: 0.272em">' + sum + '</span>';
+    finalSum.innerHTML = '<span class="mn" id="MathJax-Span-5" style="font-family: MathJax_Main; padding-left: 0.272em; padding-right: 0.272em">' + sum + '</span>';
+    
+    let xArgument = document.getElementById('argumentX');
+    xArgument.innerHTML = '<span class="mn" id="MathJax-Span-5" style="font-family: MathJax_Main; padding-left: 0.272em; padding-right: 0.272em">' + x + '</span>';
+
 }
