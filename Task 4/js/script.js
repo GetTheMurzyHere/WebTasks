@@ -4,7 +4,7 @@ function drawEllipse(a, b) {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    if (a != 0 && b != 0 && a > b) {
+    if (a != 0 && b != 0 && a <= b) {
         ctx.beginPath();
         ctx.setLineDash([]);
         ctx.ellipse(200, 200, a, b, 0, 0, 2 * Math.PI);
@@ -50,12 +50,12 @@ function result(a, b) {
             drawEllipse(a, b);
             return;
         }
-        if (a < b) {
+        if (a > b) {
             alert("Большая полуось не может быть меньше малой!");
             drawEllipse(a, b);
             return;
         }
         number.innerHTML = '<span class="mn" id="MathJax-Span-5" style="font-family: MathJax_Main; padding-left: 0.272em;">' + square(a, b) + '</span>';
+        drawEllipse(a, b);
     }
-    drawEllipse(a, b);
 }
