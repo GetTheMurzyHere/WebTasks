@@ -31,9 +31,9 @@
         </nav>
     </header>
 
-    <section>
-        <div class="container matrix-block">
-            <div class="matrix">
+    <section id="workspace">
+        <div class="container" id="input-block">
+            <div>
                 <span class="d-flex justify-content-center mb-2">
                     Входная матрица
                     <div class="ml-2">
@@ -99,63 +99,149 @@
         <div class="d-flex" style="padding: 0;">
             <button type="button" class="btn btn-primary container-fluid" id="enter-btn">Enter</button>
         </div>
-        <div class="container matrix-result-block" style="display: none">
-            <div class="matrix">
+        <div class="container" id="matrix-result-block" style="display: none">
+            <div class="matrix" style=>
                 <span class="d-flex justify-content-center">Положительная матрица</span>
-                <div class="row">
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                </div>
-                <div class="row">
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                </div>
-                <div class="row">
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                </div>
-                <div class="row">
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                </div>
-                <div class="row">
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
+                <div class="matrix" style="padding: 10px">
+                    <math>
+                        <mfenced separators="">
+                            <mtable>
+                                <mtr>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                </mtr>
+                                <mtr>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                </mtr>
+                                <mtr>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                </mtr>
+                                <mtr>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                </mtr>
+                                <mtr>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                    <mtd>
+                                        <mn class="result-number">1</mn>
+                                    </mtd>
+                                </mtr>
+                            </mtable>
+                        </mfenced>
+                    </math>
                 </div>
             </div>
-        </div>
-        <div class="container matrix-result-block" style="display: none">
-            <div class="matrix">
+            <div class="matrix" style=>
                 <span class="d-flex justify-content-center">Отрицательная матрица</span>
                 <div class="row">
                     <div class="col">1</div>
@@ -208,7 +294,6 @@
                     <div class="col">1</div>
                 </div>
             </div>
-        </div>
     </section>
 
     <script src="http://fred-wang.github.io/mathjax.js/mpadded-min.js"></script>
