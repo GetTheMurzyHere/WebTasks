@@ -1,3 +1,7 @@
+$(function () {
+    $('[data-toggle="popover"]').popover()
+})
+
 var enterButton = document.getElementById('enter-btn');
 enterButton.addEventListener('click', result);
 
@@ -8,9 +12,10 @@ function result() {
     for (let i = 0; i < 5; i++) {
         matrix[i] = inputsArray[i].value.split(' ').map(Number);
         if (matrix[i].length != 8) {
-            alert("Некорректно введены значения матрицы!");
+            alert("Некорректно введены значения матрицы! Проверьте поля для ввода на лишние/недостающие пробелы/числа.");
             return;
         }
+
         negativeMatrix[i] = [];
         for (let j = 0; j < 8; j++) {
             if (matrix[i][j] != 0) {
