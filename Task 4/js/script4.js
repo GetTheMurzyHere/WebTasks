@@ -30,27 +30,32 @@ function generate() {
     let minMaxMatrixValues = document.getElementById('min-max-matrix').value.split(' ').map(Number);
     let minMaxValue = document.getElementById('values-range').value.split(' ').map(Number);
 
-    if (minMaxArrayValues[0] == 0 || minMaxArrayValues[1] == 0 || minMaxMatrixValues[0] == 0 || minMaxMatrixValues[1] == 0) {
-        customAlert('Границы диапазонов не могут быть равны нулю!');
-        return;
-    }
-    else {
-        if (minMaxArrayValues[0] > minMaxArrayValues[1] || minMaxMatrixValues[0] > minMaxMatrixValues[1]) {
-            customAlert('Верхняя граница диапазона для генерации размерности массива не может быть меньше нижней!');
+    if (minMaxArrayValues.length == 2 && minMaxMatrixValues.length == 2 && minMaxValue.length == 2) {
+        if (minMaxArrayValues[0] == 0 || minMaxArrayValues[1] == 0 || minMaxMatrixValues[0] == 0 || minMaxMatrixValues[1] == 0) {
+            customAlert('Границы диапазонов не могут быть равны нулю!');
             return;
-        }
-        else {
-            if (minMaxArrayValues[0] < 0 || minMaxMatrixValues[0] < 0) {
-                customAlert('Размерность массива или матрицы не может быть отрицательной!');
+        } else {
+            if (minMaxArrayValues[0] > minMaxArrayValues[1] || minMaxMatrixValues[0] > minMaxMatrixValues[1]) {
+                customAlert('Верхняя граница диапазона для генерации размерности массива не может быть меньше нижней!');
                 return;
             }
+            else {
+                if (minMaxArrayValues[0] < 0 || minMaxMatrixValues[0] < 0) {
+                    customAlert('Размерность массива или матрицы не может быть отрицательной!');
+                    return;
+                }
+            }
         }
-    }
 
-    if (minMaxValue[0] > minMaxValue[1]) {
-        customAlert('Верхняя граница диапазона минимальных и максимальных значений не может быть меньше нижней!');
+        if (minMaxValue[0] > minMaxValue[1]) {
+            customAlert('Верхняя граница диапазона минимальных и максимальных значений не может быть меньше нижней!');
+            return;
+        }
+    } else {
+        customAlert('Вы ввели неверное количество параметров!');
         return;
     }
+
 
     min = minMaxValue[0];
     max = minMaxValue[1];
@@ -60,6 +65,7 @@ function generate() {
 
     getArray(arraySize);
     getMatrix(matrixSize);
+    showArray();
     showMatrix();
 }
 
@@ -80,11 +86,47 @@ function getResultArray(arr) {
 
 function getMatrix(size) {
     for (let i = 0; i < size; i++) {
-        matrix[i] = [];
-        for (let j = 0; j < size; j++) {
-            matrix[i][j] = getRandomInt(min, max);
+        matrix[i] = new Array(new Array(size));
+    }
+
+    if (size % 2 == 0) {
+        for (let i = size - 1; i >= 0; i--) {
+            if (i % 2 != 0) {
+                for (let j = size - 1; j >= 0; j--) {
+                    matrix[i][j] = getRandomInt(min, max);
+                }
+            }
+            else {
+                for (let j = 0; j < size; j++) {
+                    matrix[i][j] = getRandomInt(min, max);
+                }
+            }
         }
     }
+    else {
+        for (let i = size - 1; i >= 0; i--) {
+            if (i % 2 == 0) {
+                for (let j = size - 1; j >= 0; j--) {
+                    matrix[i][j] = getRandomInt(min, max);
+                }
+            }
+            else {
+                for (let j = 0; j < size; j++) {
+                    matrix[i][j] = getRandomInt(min, max);
+                }
+            }
+        }
+    }
+}
+
+function showArray() {
+    matrixBlock.innerHTML += `<div class="matrix-row" id="array" style="display: grid; grid-template-columns: repeat(${arraySize}, 1fr); margin-bottom: 40px">`
+    let arrayBlock = document.getElementById('array');
+    for (let i = 0; i < arraySize; i++) {
+        arrayBlock.innerHTML += `<div class="matrix-row-element d-flex justify-content-center align-items-center">${array[i]}</div>`
+    }
+
+    matrixBlock.innerHTML += '</div>'
 }
 
 function showMatrix() {
