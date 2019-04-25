@@ -27,6 +27,8 @@ function square(a, b) {
 }
 
 function result(a, b) {
+    a = parseInt(a);
+    b = parseInt(b)
     var number = document.getElementById('result');
     number.innerHTML = "";
     if (a == "" || b == "") {
