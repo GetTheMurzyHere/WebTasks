@@ -32,270 +32,527 @@
     </header>
 
     <section id="workspace">
-        <div class="container" id="input-block">
-            <div>
-                <span class="d-flex justify-content-center mb-2">
-                    Входная матрица
-                    <div class="ml-2">
+        <form>
+            <div class="container" id="input-block">
+                <div>
+                    <span class="d-flex justify-content-center mb-2">
+                        Входная матрица
+                        <div class="ml-2">
+                            <math>
+                                <mn>5</mn>
+                                <mo>x</mo>
+                                <mn>8</mn>
+                            </math>
+                        </div>
+                    </span>
+                    <div class="row">
+                        <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Строка 1</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-sm" data-trigger="focus" data-toggle="popover"
+                                data-container="body" data-content="Введите последовательно через пробел 8 чисел.">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Строка 2</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-sm" data-trigger="focus" data-toggle="popover"
+                                data-container="body" data-content="Введите последовательно через пробел 8 чисел.">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Строка 3</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-sm" data-trigger="focus" data-toggle="popover"
+                                data-container="body" data-content="Введите последовательно через пробел 8 чисел.">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Строка 4</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-sm" data-trigger="focus" data-toggle="popover"
+                                data-container="body" data-content="Введите последовательно через пробел 8 чисел.">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Строка 5</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-sm" data-trigger="focus" data-toggle="popover"
+                                data-container="body" data-content="Введите последовательно через пробел 8 чисел.">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex" style="padding: 0;" id="enter-btn-block">
+                <button type="reset" class="btn btn-primary container-fluid" id="enter-btn">Enter</button>
+            </div>
+        </form>
+        <div class="flex-column justify-content-center" id="result-block" style="display: none">
+            <div class="container d-flex justify-content-around" id="matrix-result-block">
+                <div class="matrix">
+                    <span class="d-flex justify-content-center mb-2"
+                        style="font-style: italic; font-weight: bold">Положительная матрица</span>
+                    <div class="matrix-math">
                         <math>
-                            <mn>5</mn>
-                            <mo>x</mo>
-                            <mn>8</mn>
+                            <mfenced separators="">
+                                <mtable>
+                                    <mtr>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                    </mtr>
+                                    <mtr>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                    </mtr>
+                                    <mtr>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                    </mtr>
+                                    <mtr>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                    </mtr>
+                                    <mtr>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                    </mtr>
+                                </mtable>
+                            </mfenced>
                         </math>
                     </div>
-                </span>
-                <div class="row">
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Строка 1</span>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-sm" data-trigger="focus" data-toggle="popover"
-                            data-container="body" data-content="Введите последовательно через пробел 8 чисел.">
+                </div>
+                <div class="matrix">
+                    <span class="d-flex justify-content-center mb-2"
+                        style="font-style: italic; font-weight: bold">Отрицательная матрица</span>
+                    <div class="matrix-math">
+                        <math>
+                            <mfenced separators="">
+                                <mtable>
+                                    <mtr>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                    </mtr>
+                                    <mtr>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                    </mtr>
+                                    <mtr>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                    </mtr>
+                                    <mtr>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                    </mtr>
+                                    <mtr>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                        <mpadded width="+40px">
+                                            <mtd>
+                                                <mn class="negative-result-number">1</mn>
+                                            </mtd>
+                                        </mpadded>
+                                    </mtr>
+                                </mtable>
+                            </mfenced>
+                        </math>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Строка 2</span>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-sm" data-trigger="focus" data-toggle="popover"
-                            data-container="body" data-content="Введите последовательно через пробел 8 чисел.">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Строка 3</span>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-sm" data-trigger="focus" data-toggle="popover"
-                            data-container="body" data-content="Введите последовательно через пробел 8 чисел.">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Строка 4</span>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-sm" data-trigger="focus" data-toggle="popover"
-                            data-container="body" data-content="Введите последовательно через пробел 8 чисел.">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Строка 5</span>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-sm" data-trigger="focus" data-toggle="popover"
-                            data-container="body" data-content="Введите последовательно через пробел 8 чисел.">
-                    </div>
-                </div>
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+                <input class="btn btn-primary container" type="button" value="Ввести новую матрицу" id="input-reset">
             </div>
         </div>
-        <div class="d-flex" style="padding: 0;">
-            <button type="button" class="btn btn-primary container-fluid" id="enter-btn">Enter</button>
-        </div>
-        <div class="container" id="matrix-result-block" style="display: none">
-            <div class="matrix" style=>
-                <span class="d-flex justify-content-center">Положительная матрица</span>
-                <div class="matrix" style="padding: 10px">
-                    <math>
-                        <mfenced separators="">
-                            <mtable>
-                                <mtr>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                </mtr>
-                                <mtr>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                </mtr>
-                                <mtr>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                </mtr>
-                                <mtr>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                </mtr>
-                                <mtr>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                    <mtd>
-                                        <mn class="result-number">1</mn>
-                                    </mtd>
-                                </mtr>
-                            </mtable>
-                        </mfenced>
-                    </math>
-                </div>
-            </div>
-            <div class="matrix" style=>
-                <span class="d-flex justify-content-center">Отрицательная матрица</span>
-                <div class="row">
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                </div>
-                <div class="row">
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                </div>
-                <div class="row">
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                </div>
-                <div class="row">
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                </div>
-                <div class="row">
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                    <div class="col">1</div>
-                </div>
-            </div>
     </section>
-
     <script src="http://fred-wang.github.io/mathjax.js/mpadded-min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
