@@ -31,6 +31,57 @@
         </nav>
     </header>
 
+    <section>
+        <form id="input-size">
+            <div class="container">
+                <div>
+                    <span class="d-flex justify-content-center mb-2">
+                        Входная матрица
+                        <div class="ml-2">
+                            <math>
+                                <mi>N</mi>
+                                <mo>x</mo>
+                                <mi>N</mi>
+                            </math>
+                        </div>
+                    </span>
+                    <div class="row">
+                        <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Размерность матрицы</span>
+                            </div>
+                            <input type="number" class="form-control" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-sm" data-trigger="focus" data-toggle="popover"
+                                data-container="body" data-content="Введите размерность матрицы N * N" id="size">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex" style="padding: 0;" id="enter-btn-block">
+                <button type="reset" class="btn btn-primary container-fluid" id="enter-size-btn">Enter</button>
+            </div>
+        </form>
+        <form id="input-values" style="display: none">
+            <div class="container" id="input-rows">
+                <div>
+                    <span class="d-flex justify-content-center mb-2">
+                        Входная матрица
+                        <div class="ml-2">
+                            <math>
+                                <mi class="size">N</mi>
+                                <mo>x</mo>
+                                <mi class="size">N</mi>
+                            </math>
+                        </div>
+                    </span>
+                </div>
+            </div>
+            <div class="d-flex" style="padding: 0;" id="enter-btn-block">
+                <button type="reset" class="btn btn-primary container-fluid" id="enter-size-btn">Enter</button>
+            </div>
+        </form>
+    </section>
+
     <script src="http://fred-wang.github.io/mathjax.js/mpadded-min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -41,7 +92,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
+    <script src="js/script4.js"></script>
 </body>
 
 </html>
