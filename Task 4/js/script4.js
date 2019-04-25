@@ -2,7 +2,17 @@ $(function () {
     $('[data-toggle="popover"').popover()
 })
 
-var enterSizeButton = document.getElementById('generate-btn');
+
+const matrixBlock = document.getElementsByClassName('matrix')[0]
+const input = document.getElementById('input-generate')
+const matrixClearButton = document.getElementById('hideMatrix')
+const matrixWrapper = document.getElementById('hideMatrixWrapper')
+const enterSizeButton = document.getElementById('generate-btn')
+
+matrixClearButton.addEventListener('click', hideMatrix);
+hide(matrixWrapper);
+hide(matrixClearButton);
+
 enterSizeButton.addEventListener('click', generate);
 enterSizeButton.addEventListener('click', getArray);
 
@@ -78,21 +88,34 @@ function getMatrix(size) {
 }
 
 function showMatrix() {
-    document.getElementById('input-generate').style.display = 'none';
-    document.getElementById('result-block').style.display = 'flex';
-    document.getElementById('workspace').className = 'container';
-    let matrixBlock = document.getElementsByClassName('matrix')[0]
+    hide(input);
+    show(matrixWrapper);
+    show(matrixClearButton)
+
     for (let i = 0; i < matrixSize; i++) {
         matrixBlock.innerHTML += `<div class="matrix-row" id="row-${i}" style="display: grid; grid-template-columns: repeat(${matrixSize}, 1fr)">`
         let matrixRow = document.getElementById(`row-${i}`)
         for (let j = 0; j < matrixSize; j++) {
             matrixRow.innerHTML += `<div class="matrix-row-element d-flex justify-content-center align-items-center">${matrix[i][j]}</div>`
-        }   
-        matrixBlock.innerHTML += '</div>'     
+        }
+        matrixBlock.innerHTML += '</div>'
     }
 }
 
+function hideMatrix() {
+    hide(matrixWrapper);
+    hide(matrixClearButton);
+    matrixBlock.innerHTML = '';
+    show(input);
+}
 
+function hide(element) {
+    element.style.display = 'none'
+}
+
+function show(element) {
+    element.style.display = 'block'
+}
 
 
 
