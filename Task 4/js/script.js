@@ -4,7 +4,7 @@ function drawEllipse(a, b) {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    if (a != 0 && b != 0 && a <= b) {
+    if (a != 0 && b != 0 && a >= b) {
         ctx.beginPath();
         ctx.setLineDash([]);
         ctx.ellipse(200, 200, a, b, 0, 0, 2 * Math.PI);
@@ -30,12 +30,12 @@ function result(a, b) {
     var number = document.getElementById('result');
     number.innerHTML = "";
     if (a == "" || b == "") {
-        alert("Введите значения длин!");
+        customAlert("Введите значения длин!");
         return;
     }
     if (a == 0 || b == 0) {
         if (a < 0 && b == 0 || a == 0 && b < 0) {
-            alert("Введены неверные данные!");
+            customAlert("Введены неверные данные!");
             drawEllipse(a, b);
             return;
         }
@@ -46,12 +46,12 @@ function result(a, b) {
     }
     else {
         if (a < 0 || b < 0) {
-            alert("Введены неверные данные!");
+            customAlert("Введены неверные данные!");
             drawEllipse(a, b);
             return;
         }
-        if (a > b) {
-            alert("Большая полуось не может быть меньше малой!");
+        if (a < b) {
+            customAlert("Большая полуось не может быть меньше малой!");
             drawEllipse(a, b);
             return;
         }

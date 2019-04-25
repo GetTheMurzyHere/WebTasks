@@ -13,10 +13,13 @@ function div(val, by) {
 }
 
 function result() {
+    if (inputsArray.value == '') {
+        customAlert('Вы ввели не все значения!')
+    }
     for (let i = 0; i < 5; i++) {
         matrix[i] = inputsArray[i].value.split(' ').map(Number);
         if (matrix[i].length != 8) {
-            alert("Некорректно введены значения матрицы! Проверьте поля для ввода на лишние/недостающие пробелы/числа.");
+            customAlert("Некорректно введены значения матрицы! Проверьте поля для ввода на лишние/недостающие пробелы/числа.");
             return;
         }
 

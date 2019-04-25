@@ -1,3 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&subset=cyrillic');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.matrix-row {
+    height: 50px
+}
+
+.matrix-row-element {
+    padding: 3px;
+    border: 1px solid #333
+}
+
 .main-block {
     margin-top: 82px;
 }
