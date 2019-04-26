@@ -16,31 +16,29 @@ hide(matrixClearButton);
 enterSizeButton.addEventListener('click', generate);
 enterSizeButton.addEventListener('click', getArray);
 
-var arraySize, matrixSize;
 var min, max;
 var array = [], matrix = [];
 
 function generate() {
-    if (document.getElementById('min-max-array').value == '' || document.getElementById('min-max-matrix').value == '' || document.getElementById('values-range').value == '') {
+    if (document.getElementById('min-max-array').value == "" || document.getElementById('values-range').value == "") {
         customAlert('Вы ввели не все значения!');
         return;
     }
 
     let minMaxArrayValues = document.getElementById('min-max-array').value.split(' ').map(Number);
-    let minMaxMatrixValues = document.getElementById('min-max-matrix').value.split(' ').map(Number);
     let minMaxValue = document.getElementById('values-range').value.split(' ').map(Number);
 
-    if (minMaxArrayValues.length == 2 && minMaxMatrixValues.length == 2 && minMaxValue.length == 2) {
-        if (minMaxArrayValues[0] == 0 || minMaxArrayValues[1] == 0 || minMaxMatrixValues[0] == 0 || minMaxMatrixValues[1] == 0) {
+    if (minMaxArrayValues.length == 2 && minMaxValue.length == 2) {
+        if (minMaxArrayValues[0] == 0 || minMaxArrayValues[1] == 0) {
             customAlert('Границы диапазонов не могут быть равны нулю!');
             return;
         } else {
-            if (minMaxArrayValues[0] > minMaxArrayValues[1] || minMaxMatrixValues[0] > minMaxMatrixValues[1]) {
+            if (minMaxArrayValues[0] > minMaxArrayValues[1]) {
                 customAlert('Верхняя граница диапазона для генерации размерности массива не может быть меньше нижней!');
                 return;
             }
             else {
-                if (minMaxArrayValues[0] < 0 || minMaxMatrixValues[0] < 0) {
+                if (minMaxArrayValues[0] < 0) {
                     customAlert('Размерность массива или матрицы не может быть отрицательной!');
                     return;
                 }
@@ -60,13 +58,11 @@ function generate() {
     min = minMaxValue[0];
     max = minMaxValue[1];
 
-    arraySize = getRandomInt(minMaxArrayValues[0], minMaxArrayValues[1]);
-    matrixSize = getRandomInt(minMaxMatrixValues[0], minMaxMatrixValues[1]);
+    var arraySize = Math.pow(getRandomInt(minMaxArrayValues[0], minMaxArrayValues[1]), 2);
 
     getArray(arraySize);
-    getMatrix(matrixSize);
-    showArray();
-    showMatrix();
+    getMatrix(arraySize);
+    showMatrix(arraySize);
 }
 
 function getRandomInt(min, max) {
@@ -81,63 +77,56 @@ function getArray(size) {
 }
 
 function getResultArray(arr) {
-    arr.sort(function (a, b) { return a - b })
+    arr.sort(function (a, b) { return a - b });
 }
 
 function getMatrix(size) {
-    for (let i = 0; i < size; i++) {
-        matrix[i] = new Array(new Array(size));
-    }
-
+    k = 0;
     if (size % 2 == 0) {
-        for (let i = size - 1; i >= 0; i--) {
+        for (let i = Math.sqrt(size) - 1; i >= 0; i--) {
+            matrix[i] = [];
             if (i % 2 != 0) {
-                for (let j = size - 1; j >= 0; j--) {
-                    matrix[i][j] = getRandomInt(min, max);
+                for (let j = Math.sqrt(size) - 1; j >= 0; j--) {
+                    matrix[i][j] = array[k];
+                    k++;
                 }
             }
             else {
-                for (let j = 0; j < size; j++) {
-                    matrix[i][j] = getRandomInt(min, max);
+                for (let j = 0; j < Math.sqrt(size); j++) {
+                    matrix[i][j] = array[k];
                 }
+                k++;
             }
         }
     }
     else {
-        for (let i = size - 1; i >= 0; i--) {
+        for (let i = Math.sqrt(size) - 1; i >= 0; i--) {
+            matrix[i] = [];
             if (i % 2 == 0) {
-                for (let j = size - 1; j >= 0; j--) {
-                    matrix[i][j] = getRandomInt(min, max);
+                for (let j = Math.sqrt(size) - 1; j >= 0; j--) {
+                    matrix[i][j] = array[k];
+                    k++;
                 }
             }
             else {
-                for (let j = 0; j < size; j++) {
-                    matrix[i][j] = getRandomInt(min, max);
+                for (let j = 0; j < Math.sqrt(size); j++) {
+                    matrix[i][j] = array[k];
+                    k++; 
                 }
             }
         }
     }
 }
 
-function showArray() {
-    matrixBlock.innerHTML += `<div class="matrix-row" id="array" style="display: grid; grid-template-columns: repeat(${arraySize}, 1fr); margin-bottom: 40px">`
-    let arrayBlock = document.getElementById('array');
-    for (let i = 0; i < arraySize; i++) {
-        arrayBlock.innerHTML += `<div class="matrix-row-element d-flex justify-content-center align-items-center">${array[i]}</div>`
-    }
-
-    matrixBlock.innerHTML += '</div>'
-}
-
-function showMatrix() {
+function showMatrix(size) {
     hide(input);
     show(matrixWrapper);
     show(matrixClearButton)
 
-    for (let i = 0; i < matrixSize; i++) {
-        matrixBlock.innerHTML += `<div class="matrix-row" id="row-${i}" style="display: grid; grid-template-columns: repeat(${matrixSize}, 1fr)">`
+    for (let i = 0; i < Math.sqrt(size); i++) {
+        matrixBlock.innerHTML += `<div class="matrix-row" id="row-${i}" style="display: grid; grid-template-columns: repeat(${Math.sqrt(size)}, 1fr)">`
         let matrixRow = document.getElementById(`row-${i}`)
-        for (let j = 0; j < matrixSize; j++) {
+        for (let j = 0; j < Math.sqrt(size); j++) {
             matrixRow.innerHTML += `<div class="matrix-row-element d-flex justify-content-center align-items-center">${matrix[i][j]}</div>`
         }
         matrixBlock.innerHTML += '</div>'

@@ -39,7 +39,10 @@
                         Сгенерировать размерность массива
                         <div class="ml-1 mr-1">
                             <math>
-                                <mi>N</mi>
+                                <msup>
+                                    <mi>N</mi>
+                                    <mn>2</mn>
+                                </msup>
                             </math>
                         </div>
                         и матрицы
@@ -67,17 +70,6 @@
                 </div>
                 <div class="input-group input-group-sm mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-sm" style="width: 270px">Диапазон для
-                            матрицы [min, max)</span>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-sm" data-trigger="focus" data-toggle="popover"
-                        data-container="body"
-                        data-content="Введите нижнюю и верхнюю границу диапазона генерации размерности матрицы через пробел."
-                        id="min-max-matrix">
-                </div>
-                <div class="input-group input-group-sm mb-3">
-                    <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-sm" style="width: 270px">Диапазон значений
                             [min, max)</span>
                     </div>
@@ -92,7 +84,7 @@
                 <button type="reset" class="btn btn-primary container-fluid" id="generate-btn">Generate</button>
             </div>
         </form>
-        
+
     </section>
 
     <div class="d-flex justify-content-center" id="hideMatrixWrapper" style="width: 100vw; padding: 20px 0">
@@ -119,7 +111,7 @@
         </div>
     </div>
 
-    
+
 
     <script src="http://fred-wang.github.io/mathjax.js/mpadded-min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
