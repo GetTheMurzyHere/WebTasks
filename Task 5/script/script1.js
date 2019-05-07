@@ -30,23 +30,23 @@ var animals = [
     }
 ]
 
-const section = document.getElementsByTagName('section')[0];
-
 var kingdoms = document.createElement('ul');
-document.body.insertBefore(kingdoms, section);
+document.getElementsByTagName('section')[0].appendChild(kingdoms);
 
 animals.forEach(kingdom => {
     kingdoms.innerHTML += '<li>' + kingdom.name + '</li>';
-
     var types = document.createElement('ul');
+    // Добавление в список царства класса
     kingdom.children.forEach(type => {
         types.innerHTML += '<li>' + type.name + '</li>';
-
         var _animals = document.createElement('ul');
+        // Добавление в список класса название животных
         type.children.forEach(animal => {
             _animals.innerHTML += '<li>' + animal + '</li>';
         });
+
         types.appendChild(_animals);
     });
+
     kingdoms.appendChild(types);
 });
