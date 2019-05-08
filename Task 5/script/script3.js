@@ -40,12 +40,15 @@ $.each(animals, function(k, kingdom) {
         $('.type').last().append('<ul class="creatures"></ul>');
         
         $.each(type.children, function(k, creature){
-            $('.creatures').last().append('<li class="creature"><span>' + creature + '</span></li>')
-            console.log(creature);
+            $('.creatures').last().append('<li class="creature"><span>' + creature + '</span></li>');
         })
 
     })
 
+})
+
+$('LI').each(function() {
+    console.log('Элемент "' + $(this).children('span').text() + '" имеет ' + $(this).find('li').length + ' вложенных LI');
 })
 
 $('.kingdom').click(function() {
