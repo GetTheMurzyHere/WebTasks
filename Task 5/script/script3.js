@@ -50,7 +50,7 @@ $.each(animals, function(k, kingdom) {
 $('LI').each(function(k) {
     console.log('Элемент "' + $(this).children('span').text() + '" имеет ' + $(this).find('li').length + ' вложенных LI');
     $(this).children('span').after('<span class=li-count id="counter' + k + '"></span>');
-    $('#counter' + k).html(' [' + $(this).find('li').length + ' вложенных LI]');
+    $('#counter' + k).html($(this).find('li').length != 0 ? ' [' + $(this).find('li').length + ' вложенных LI]' : '');
 })
 
 $('.kingdom').click(function() {
