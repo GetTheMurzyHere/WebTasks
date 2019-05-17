@@ -1,67 +1,95 @@
 var animals = [
     {
-        name: 'Животные',
+        name: "Животные",
         children: [
             {
-                name: 'Млекопитающие',
-                children: ['Коровы', 'Ослы', 'Собаки', 'Тигры']
+                name: "Млекопитающие",
+                children: [
+                    {
+                        name: "Коровы",
+                        children: []
+                    },
+                    {
+                        name: "Ослы",
+                        children: []
+                    },
+                    {
+                        name: "Собаки",
+                        children: []
+                    },
+                    {
+                        name: "Тигры",
+                        children: []
+                    }
+                ]
             },
-
             {
-                name: 'Другие',
-                children: ['Змеи', 'Птицы', 'Ящерицы']
+                name: "Другие",
+                children: [
+                    {
+                        name: "Змеи",
+                        children: []
+                    },
+                    {
+                        name: "Птицы",
+                        children: []
+                    },
+                    {
+                        name: "Ящирицы",
+                        children: []
+                    }
+                ]
             }
         ]
     },
-
     {
-        name: 'Рыбы',
+        name: "Рыбы",
         children: [
             {
-                name: 'Аквариумные',
-                children: ['Гуппи', 'Скалярии']
+                name: "Аквариумные",
+                children: [
+                    {
+                        name: "Гуппи",
+                        children: []
+                    },
+                    {
+                        name: "Скалярии",
+                        children: []
+                    }
+                ]
             },
-
             {
-                name: 'Морские',
-                children: ['Морская форель']
+                name: "Морские",
+                children: [
+                    {
+                        name: "Морская форель",
+                        children: []
+                    }
+                ]
             }
         ]
     }
-]
+];
 
-$('#workspace').append('<ul id="kingdoms"></ul>');
-$.each(animals, function(k, kingdom) {
-    $('#kingdoms').append('<li class="kingdom"><span>'+ kingdom.name +'</span></li>');
-    $('.kingdom').last().append('<ul class="types"></ul>');
+function generate(item, par) {
+    if (item.length > 0) {
+        par.append("<ul></ul>");
+        for (var i = 0; i < item.length; i++) {
+            par.children("ul").append("<li><span>" + item[i].name + "</span></li>");
+            generate(item[i].children, par.children("ul").children("li:last-child"))
+        }
+    }
+}
 
-    $.each(kingdom.children, function(k, type){
-        $('.types').last().append('<li class="type"><span>'+ type.name +'</span></li>');
-        $('.type').last().append('<ul class="creatures"></ul>');
-        
-        $.each(type.children, function(k, creature){
-            $('.creatures').last().append('<li class="creature"><span>' + creature + '</span></li>');
-        })
+generate(animals, $("#workspace"));
 
-    })
-
-})
-
-$('LI').each(function(k) {
+$('li').each(function(k) {
     console.log('Элемент "' + $(this).children('span').text() + '" имеет ' + $(this).find('li').length + ' вложенных LI');
     $(this).children('span').after('<span class=li-count id="counter' + k + '"></span>');
     $('#counter' + k).html($(this).find('li').length != 0 ? ' [' + $(this).find('li').length + ' вложенных LI]' : '');
 })
 
-$('.kingdom').click(function() {
+$('LI').click(function() {
     $(this).children().not('span').slideToggle();
-})
-
-$('.type').click(function(event) {
-    event.stopPropagation();
-    $(this).children().not('span').slideToggle();
-})
-
-$('.creatures').click(function(event) {
     event.stopPropagation();
 })

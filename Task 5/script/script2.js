@@ -21,8 +21,8 @@ var getDOM = (function () {
             dom += '<span>{child #' + n + '}</span>';
         }
         
-        if (node.textContent && node.nodeName == 'LI') {
-            dom += '<span class="value">[<em>' + node.textContent + '</em>]</span>';
+        if (node.nameContent && node.nodeName == 'LI') {
+            dom += '<span class="value">[<em>' + node.nameContent + '</em>]</span>';
         }
 
         dom += '<br>';
