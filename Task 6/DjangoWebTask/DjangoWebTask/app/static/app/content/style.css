@@ -1,0 +1,247 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #BDCCCA;
+    font-size: 19px;
+    font-family: sans-serif;
+}
+
+.top {
+    width: 100vw;
+    height: 14vh;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.top .menuButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    background: rgb(167, 202, 197);
+    width: 8vw;
+    border-radius: 100px;
+    height: 4vh;
+    transition: .2s;    
+}
+
+.top .menu:hover .firstMenu {
+    visibility: visible;
+    opacity: 1;
+}
+
+.top .menu:hover .menuButton {
+    background: rgb(84, 179, 164);
+}
+
+.top .menu {
+    cursor: pointer;
+}
+
+.top .firstMenu {
+    margin-top: 1px; 
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    justify-content: center;
+    position: absolute;
+    width: 8vw;
+    border: 3px double rgb(113, 172, 163);
+    border-radius: 10px;
+    background: rgb(207, 228, 225);
+    transition: all .2s;
+}
+
+.top .firstMenu ul, li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    color: rgb(54, 124, 114);
+}
+
+.top .firstMenu li {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    margin: 1px;
+    width: 110px;
+    border-radius: 5px;
+}
+
+.top .firstMenu li:hover {
+    background: rgba(0, 0, 0, 0.2);
+    transition: .4s;
+}
+
+.top .firstMenu li:focus {
+    background: rgb(102, 216, 199);
+    outline: none;
+}
+
+.top .firstMenu > ul > li:focus #secondMenu{
+    visibility: visible;
+    opacity: 1;
+}
+
+.top .firstMenu > ul :last-child:focus {
+    background: rgb(228, 133, 133);
+}
+
+.top #secondMenu {
+    visibility: hidden;
+    position: absolute;
+    left: 125px;
+    top: -4;
+    opacity: 0;
+}
+
+.top #secondMenu a {
+    text-decoration: none;
+}
+
+.main {
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.main .about-content {
+    margin: 10px;
+    width: 50vw;
+    font-size: 16px;
+}
+
+.main .bottom-content .list li {
+    text-align: left;
+    color: black;
+    list-style: circle;
+}
+
+.main .photo {
+    width: 185px; 
+    height: 240px; 
+    border-radius: 5%;
+    border: 1px solid #000;
+    float: left;
+    margin: 20px 20px 0 0
+}
+
+.main .bottom-content {
+    display: flex;
+    width: 50vw;
+    align-items: center;
+    justify-content: center;
+    height: 20vh;
+}
+
+
+
+.main .mainContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100vw;
+    height: 80vh;
+    align-items: center;
+}
+
+
+.main .sidebar {
+    display: flex;
+    justify-content: center;
+}
+
+.main .banners a {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: center;
+    height: 22vh;
+    width: 150px;
+}
+
+.main .banners a img {
+    height: 145px;
+    width: 150px;
+    transition: .3s;
+}
+
+.main .banners a img:hover {
+    transform: scale(1.25);
+}
+
+.main .video iframe {
+    width: 100%; 
+    height: 300px; 
+}
+
+.main .meme img {
+    height: 375px;
+    border-radius: 10px
+}
+
+@media print {
+    body {
+        background-color: white;
+    }
+    
+    .banners {
+        display: none;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .video {
+        display: none;
+    }
+
+    .signature {
+        display: none !important;
+    }
+
+    .poemName {
+        font-size: 28px !important;
+    }
+
+    .about-content {
+        margin: 0;
+        width: 100vw !important;
+    }
+    .fullName {
+        width: 100vw !important;
+    }
+
+    .bottom-content {
+        width: 70vw !important;
+        display: flex;
+        justify-content: center;
+    }
+
+    .list {
+        width: 30vw;
+    }
+
+    .main .hr {
+        visibility: hidden !important;
+    }
+
+    .meme {
+        display: flex;
+        align-items: center;
+        height: 70vh;
+    }
+
+    .meme > img {
+        height: 60vh;
+    }
+
+    #signature {
+        width: 90vw !important;
+        justify-content: flex-end;
+    }
+}
