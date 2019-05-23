@@ -8,39 +8,61 @@ from django.template import RequestContext
 from datetime import datetime
 
 def home(request):
-    """Renders the home page."""
-
     assert isinstance(request, HttpRequest)
     return render(
         request,
         'app/index.html',
         {
-            'title':'Главная',
+            'title':'Main',
         }
     )
 
 def contact(request):
-    """Renders the contact page."""
     assert isinstance(request, HttpRequest)
     return render(
         request,
         'app/poem.html',
         {
             'title':'Poem',
-            'message':'Your contact page.',
-            'year':datetime.now().year,
         }
     )
 
 def about(request):
-    """Renders the about page."""
     assert isinstance(request, HttpRequest)
     return render(
         request,
         'app/about.html',
         {
             'title':'About',
-            'message':'Your application description page.',
-            'year':datetime.now().year,
+        }
+    )
+
+def main_old(request):
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/main_old.html',
+        {
+            'title':'Главная 1.3',
+        }
+    )
+
+def poem_old(request):
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/poem_old.html',
+        {
+            'title':'Стих 1.1',
+        }
+    )
+
+def about_old(request):
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/about_old.html',
+        {
+            'title':'О себе 1.2',
         }
     )

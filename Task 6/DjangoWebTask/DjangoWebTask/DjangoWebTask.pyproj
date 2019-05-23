@@ -49,8 +49,7 @@
     <Folder Include="app\static\app\" />
     <Folder Include="app\static\app\content\" />
     <Folder Include="app\static\app\fonts\" />
-    <Folder Include="app\static\app\old_site\" />
-    <Folder Include="app\static\app\old_site\css\" />
+    <Folder Include="app\static\app\img\" />
     <Folder Include="app\static\app\scripts\" />
     <Folder Include="app\templates\" />
     <Folder Include="app\templates\app\" />
@@ -58,16 +57,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\static\app\content\style.css" />
-    <Content Include="app\static\app\old_site\css\style.css" />
-    <Content Include="app\static\app\old_site\youtube play logo.png" />
-    <Content Include="app\static\app\old_site\Главная.html" />
-    <Content Include="app\static\app\old_site\О себе.html" />
-    <Content Include="app\static\app\old_site\Стих.html" />
+    <Content Include="app\static\app\img\youtube play logo.png" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />
     <Content Include="app\static\app\content\bootstrap.min.css" />
-    <Content Include="app\static\app\content\site.css" />
     <Content Include="app\static\app\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="app\static\app\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="app\static\app\fonts\glyphicons-halflings-regular.ttf" />
@@ -91,8 +85,6 @@
     <Content Include="app\templates\app\poem.html" />
     <Content Include="app\templates\app\index.html" />
     <Content Include="app\templates\app\layout.html" />
-    <Content Include="app\templates\app\login.html" />
-    <Content Include="app\templates\app\loginpartial.html" />
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.html">
