@@ -1,4 +1,4 @@
-function Ball(x, y, direction) {
+function Pacman(x, y, direction) {
   Figure.apply(this, [x, y, direction]);
   this.radius = random(5, 70);
   this.render = () => {
@@ -6,21 +6,21 @@ function Ball(x, y, direction) {
     this.radius = this.radius + GROWTH_RATE;
     switch (this.direction) {
       case 1:
-        this.moveUp();
+        this.moveUp()
         break;
       case 2:
-        this.moveDown();
+        this.moveDown()
         break;
       case 3:
-        this.moveLeft();
+        this.moveLeft()
         break;
       case 4:
-        this.moveRight();
+        this.moveRight()
         break;
       case 5:
         this.moveRandom();
         break;
     }
-    circle(this.posX, this.posY, this.radius);
+    arc(this.posX, this.posY, this.radius, this.radius, 0.5, PI + HALF_PI + QUARTER_PI);
   }
 }
