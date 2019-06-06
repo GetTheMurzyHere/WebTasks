@@ -1,4 +1,4 @@
-var canvas, ctx, balls, idTimer, isPressed = false;
+var canvas, ctx, balls, idTimer, movePressed = false;
 TBall = new Class({
     initialize: function (pX, pY) {
         with (this) {
@@ -71,28 +71,45 @@ function goInput(event) {
     item.draw(ctx);
     balls.push(item);
 }
-function moveBall() {
-    //реализация движения шариков, находящихся в массиве balls
-    drawBack(ctx, '#202020', '#aaa', canvas.width, canvas.height);
-    for (var i = 0; i < balls.length; i) {
-        balls[i].posX = balls[i].posX + (Math.random() * 4 - 2);
-        balls[i].posY = balls[i].posY + (Math.random() * 2 - 4);
-        balls[i].draw(ctx);
-        if ((balls[i].posX > canvas.width) || (balls[i].posX < 0) || (balls[i].posY < 0))
-            balls.splice(i, 1);
-        else
-            i++;
+
+function move(direction, value) {
+    if (movePressed) {
+        clearInterval(idTimer);
     }
-}
-function move() {
-    if (!isPressed) {
-        isPressed = true;
-        idTimer = setInterval('moveBall();', 50);
-    }
+    movePressed = true;
+    idTimer = setInterval(function () {
+        drawBack(ctx, '#202020', '#aaa', canvas.width, canvas.height);
+        for (var i = 0; i < balls.length; i) {
+            switch (direction) {
+                case 'UP':
+                    balls[i].posX = balls[i].posX + (Math.random() * 4 - 2);
+                    balls[i].posY = balls[i].posY + (Math.random() * 2 - 4);
+                    break;
+                case 'DOWN':
+                    balls[i].posX = balls[i].posX - (Math.random() * 4 - 2);
+                    balls[i].posY = balls[i].posY - (Math.random() * 2 - 4);
+                    break;
+                case 'LEFT':
+                    balls[i].posY = balls[i].posY + (Math.random() * 4 - 2);
+                    balls[i].posX = balls[i].posX + (Math.random() * 2 - 4);
+                    break;
+                case 'RIGHT':
+                    balls[i].posY = balls[i].posY - (Math.random() * 4 - 2);
+                    balls[i].posX = balls[i].posX - (Math.random() * 2 - 4);
+                    break;
+            }
+            balls[i].draw(ctx);
+            if ((balls[i].posX > canvas.width) || (balls[i].posX < 0) || (balls[i].posY < 0)
+                || (balls[i].posY > canvas.height))
+                balls.splice(i, 1);
+            else
+                i++;
+        }
+    }, 50);
 }
 function stop() {
-    if (isPressed) {
-        isPressed = false;
+    if (movePressed) {
+        movePressed = false;
         clearInterval(idTimer);
     }
 }

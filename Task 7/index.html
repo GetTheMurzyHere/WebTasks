@@ -13,7 +13,10 @@
     <canvas id="canvas" width="600" height="400" onclick="goInput(event);">
     </canvas>
     <form>
-        <input type="button" value="Движение" onclick="move()">
+        <input type="button" value="Вверх" onclick="move('UP', this.value)">
+        <input type="button" value="Вниз" onclick="move('DOWN', this.value)">
+        <input type="button" value="Влево" onclick="move('LEFT')">
+        <input type="button" value="Вправо" onclick="move('RIGHT')">
         <input type="button" value="Стоп" onclick="stop()">
     </form>
 </body>
