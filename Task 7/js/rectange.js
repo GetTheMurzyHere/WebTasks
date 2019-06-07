@@ -25,6 +25,6 @@ function Rectangle(x, y, direction) {
         this.moveRandom();
         break;
     }
-    rect(this.posX, this.posY, this.width, this.height);
+    rect(this.posX - this.width / 2, this.posY - this.height / 2, this.width, this.height);
   }
 }

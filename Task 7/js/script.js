@@ -52,7 +52,7 @@ function draw() {
 function createFigure() {
     let figure;
 
-    switch (Math.round(random(1, 2))) {
+    switch (Math.round(random(1, 3))) {
         case 1:
             figure = new Ball(mouseX, mouseY, direction);
             break
@@ -62,9 +62,6 @@ function createFigure() {
         case 3:
             figure = new Rectangle(mouseX, mouseY, direction);
             break
-
-
-
     }
     figures.push(figure);
 }
