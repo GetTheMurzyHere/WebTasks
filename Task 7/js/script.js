@@ -30,7 +30,7 @@ function draw() {
       figures.splice(index, 1);
       return;
     }
-    for (var i = 0; i < figures.length; i++) {
+    for (let i = 0; i < figures.length; i++) {
       if (figures[i] == figure) {
         continue;
       }
@@ -39,18 +39,16 @@ function draw() {
           (figure instanceof Pacman && figures[i] instanceof Ball) || (figure instanceof Pacman && figures[i] instanceof Pacman)) {
           let distance = dist(figure.posX, figure.posY, figures[i].posX, figures[i].posY);
           if (distance <= (figure.diameter / 2 + figures[i].diameter / 2)) {
-            console.log(1)
             figures.splice(index, 1);
-            figures.splice(i - 1, 1);
+            figures.splice(i - 1 < 0 ? i : i - 1, 1);
           }
         }
 
         if ((figure instanceof Ball && figures[i] instanceof Rectangle) || (figure instanceof Pacman && figures[i] instanceof Rectangle)) {
-
           let testX = figure.posX;
           let testY = figure.posY;
 
-          if (figure.posX < figures[i].posX) testX = figures[i].posX;      
+          if (figure.posX < figures[i].posX) testX = figures[i].posX;
           else if (figure.posX > figures[i].posX + figures[i].width) testX = figures[i].posX + figures[i].width
           if (figure.posY < figures[i].posY) testY = figures[i].posY;
           else if (figure.posY > figures[i].posY + figures[i].height) testY = figures[i].posY + figures[i].height;
@@ -61,7 +59,7 @@ function draw() {
 
           if (distance <= figure.diameter / 2) {
             figures.splice(index, 1);
-            figures.splice(i - 1, 1);
+            figures.splice(i - 1 < 0 ? i : i - 1, 1);
           }
         }
 
@@ -69,7 +67,7 @@ function draw() {
           let testX = figures[i].posX;
           let testY = figures[i].posY;
 
-          if (figures[i].posX < figure.posX) testX = figure.posX;      
+          if (figures[i].posX < figure.posX) testX = figure.posX;
           else if (figures[i].posX > figure.posX + figure.width) testX = figure.posX + figure.width
           if (figures[i].posY < figure.posY) testY = figure.posY;
           else if (figures[i].posY > figure.posY + figure.height) testY = figure.posY + figure.height;
@@ -80,7 +78,17 @@ function draw() {
 
           if (distance <= figures[i].diameter / 2) {
             figures.splice(index, 1);
-            figures.splice(i - 1, 1);
+            figures.splice(i - 1 < 0 ? i : i - 1, 1);
+          }
+        }
+
+        if (figure instanceof Rectangle && figures[i] instanceof Rectangle) {
+          if (figure.posX + figure.width >= figures[i].posX &&
+            figure.posX <= figures[i].posX + figures[i].width &&
+            figure.posY + figure.height >= figures[i].posY &&
+            figure.posY <= figures[i].posY + figures[i].height) {
+            figures.splice(index, 1);
+            figures.splice(i - 1 < 0 ? i : i - 1, 1);
           }
         }
       }

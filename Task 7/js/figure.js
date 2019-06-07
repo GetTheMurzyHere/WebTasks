@@ -9,7 +9,7 @@ function Figure(x, y, direction) {
         b: random(255)
     }
     this.direction = direction;
-    this.chaos = false;
+    this.chaos = false;    
 
     this.moveLeft = () => {
         this.speed = this.speed + this.velocity
