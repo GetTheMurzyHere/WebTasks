@@ -3,6 +3,8 @@ function Rectangle(x, y, direction) {
   this.height = random(5, 70);
   this.width = random(5, 70);
   this.diagonal;
+  this.posX = this.posX - this.width / 2;
+  this.posY  = this.posY - this.height / 2;
   this.render = () => {
     this.width = this.width + GROWTH_RATE;
     this.height = this.height + GROWTH_RATE;
@@ -25,6 +27,6 @@ function Rectangle(x, y, direction) {
         this.moveRandom();
         break;
     }
-    rect(this.posX - this.width / 2, this.posY - this.height / 2, this.width, this.height);
+    rect(this.posX , this.posY, this.width, this.height);
   }
 }
