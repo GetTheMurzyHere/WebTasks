@@ -16,17 +16,24 @@ let figures = [];
 
 let direction;
 
+function preload() {
+  soundFormats('mp3', 'ogg');
+  popSound = loadSound('../assets/cartoon-bubble-pop-01-2.mp3');
+}
+
 function setup() {
   cnv = createCanvas(WIDTH, HEIGHT);
   cnv.mousePressed(createFigure);
   strokeWeight(0);
   frameRate(60);
+  popSound.setVolume(0.5);
 }
 
 function draw() {
-  background(255);
+  background(164, 217, 224);
   figures.forEach(function (figure, index) {
     if (figure.posX < 0 || figure.posX > WIDTH || figure.posY < 0 || figure.posY > HEIGHT || figure.diameter > MAX_BALL_DIAMETER || figure.diagonal > MAX_RECT_DIAGONAL) {
+      popSound.play();
       figures.splice(index, 1);
       return;
     }
@@ -39,6 +46,7 @@ function draw() {
           (figure instanceof Pacman && figures[i] instanceof Ball) || (figure instanceof Pacman && figures[i] instanceof Pacman)) {
           let distance = dist(figure.posX, figure.posY, figures[i].posX, figures[i].posY);
           if (distance <= (figure.diameter / 2 + figures[i].diameter / 2)) {
+            popSound.play();
             figures.splice(index, 1);
             figures.splice(i - 1 < 0 ? i : i - 1, 1);
           }
@@ -58,6 +66,7 @@ function draw() {
           let distance = Math.sqrt((distX * distX) + (distY * distY));
 
           if (distance <= figure.diameter / 2) {
+            popSound.play();
             figures.splice(index, 1);
             figures.splice(i - 1 < 0 ? i : i - 1, 1);
           }
@@ -77,6 +86,7 @@ function draw() {
           let distance = Math.sqrt((distX * distX) + (distY * distY));
 
           if (distance <= figures[i].diameter / 2) {
+            popSound.play();
             figures.splice(index, 1);
             figures.splice(i - 1 < 0 ? i : i - 1, 1);
           }
@@ -87,6 +97,7 @@ function draw() {
             figure.posX <= figures[i].posX + figures[i].width &&
             figure.posY + figure.height >= figures[i].posY &&
             figure.posY <= figures[i].posY + figures[i].height) {
+            popSound.play();
             figures.splice(index, 1);
             figures.splice(i - 1 < 0 ? i : i - 1, 1);
           }

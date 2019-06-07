@@ -2,6 +2,7 @@ function Ball(x, y, direction) {
   Figure.apply(this, [x, y, direction]);
   this.diameter = random(5, 70);
   this.render = () => {
+    strokeWeight(1);
     fill(this.color.r, this.color.g, this.color.b);
     this.diameter = this.diameter + GROWTH_RATE;
     switch (this.direction) {

@@ -21,6 +21,6 @@ function Pacman(x, y, direction) {
         this.moveRandom();
         break;
     }
-    arc(this.posX, this.posY, this.diameter, this.diameter, 0.5, PI + HALF_PI + QUARTER_PI);
+    arc(this.posX, this.posY, this.diameter, this.diameter, 0.5, PI + HALF_PI + QUARTER_PI, PIE);
   }
 }
