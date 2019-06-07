@@ -1,9 +1,9 @@
 function Ball(x, y, direction) {
   Figure.apply(this, [x, y, direction]);
-  this.radius = random(5, 70);
+  this.diameter = random(5, 70);
   this.render = () => {
     fill(this.color.r, this.color.g, this.color.b);
-    this.radius = this.radius + GROWTH_RATE;
+    this.diameter = this.diameter + GROWTH_RATE;
     switch (this.direction) {
       case 1:
         this.moveUp();
@@ -21,6 +21,6 @@ function Ball(x, y, direction) {
         this.moveRandom();
         break;
     }
-    circle(this.posX, this.posY, this.radius);
+    circle(this.posX, this.posY, this.diameter);
   }
 }
