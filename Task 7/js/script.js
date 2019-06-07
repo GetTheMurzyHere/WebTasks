@@ -29,19 +29,20 @@ function draw() {
         if (figure.posX < 0 || figure.posX > WIDTH || figure.posY < 0 || figure.posY > HEIGHT || figure.radius > MAX_BALL_RADIUS || figure.diagonal > MAX_RECT_DIAGONAL) {
             figures.splice(index, 1);
         }
-        // for (var i = 0; i < figures.length; i++) {
-        //     if (figures[i] == figure) {
-        //         continue;
-        //     }
-        //     else {
-        //         if ((figure.posX - figures[i].posX) * (figure.posX - figures[i].posX) + (figure.posY - figures[i].posY) * (figure.posY - figures[i].posY) == ((figure.radius + figures[i].radius) * (figure.radius + figures[i].radius))) {
-        //             console.log(Math.sqrt((figure.posX - figures[i].posX) * (figure.posX - figures[i].posX) + (figure.posY - figures[i].posY) * (figure.posY - figures[i].posY)));
-        //             console.log(figure.radius + figures[i].radius);
-        //             figures.splice(index, 1);
-        //             figures.splice(i, 1);
-        //         }
-        //     }
-        // }
+        for (var i = 0; i < figures.length; i++) {
+            if (figures[i] == figure) {
+                continue;
+            }
+            else {
+                let distance = dist(figure.posX, figure.posY, figures[i].posX, figures[i].posY);
+                console.log(distance, (figure.radius + figures[i].radius));
+                if (distance <= (figure.radius + figures[i].radius)) {
+
+                    figures.splice(index, 1);
+                    figures.splice(i, 1);
+                }
+            }
+        }
         if (figure.chaos) {
             figure.moveChaos();
         }
@@ -51,7 +52,7 @@ function draw() {
 
 function createFigure() {
     let figure;
-    switch (Math.round(random(1, 3))) {
+    switch (Math.round(random(1, 1))) {
         case 1:
             figure = new Ball(mouseX, mouseY, direction);
             break
