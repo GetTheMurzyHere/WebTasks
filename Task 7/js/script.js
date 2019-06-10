@@ -9,8 +9,8 @@ const WIDTH = 600;
 
 const GROWTH_RATE = 0.1;
 
-const MAX_BALL_DIAMETER = 1200;
-const MAX_RECT_DIAGONAL = 1500;
+const MAX_BALL_DIAMETER = 120;
+const MAX_RECT_DIAGONAL = 150;
 
 let figures = [];
 
