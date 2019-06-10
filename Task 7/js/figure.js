@@ -10,6 +10,7 @@ function Figure(x, y, direction) {
     }
     this.direction = direction;
     this.chaos = false;    
+    this.isStay = true;
 
     this.moveLeft = () => {
         this.speed = this.speed + this.velocity

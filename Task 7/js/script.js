@@ -9,8 +9,8 @@ const WIDTH = 600;
 
 const GROWTH_RATE = 0.1;
 
-const MAX_BALL_DIAMETER = 120;
-const MAX_RECT_DIAGONAL = 150;
+const MAX_BALL_DIAMETER = 1200;
+const MAX_RECT_DIAGONAL = 1500;
 
 let figures = [];
 
@@ -31,82 +31,87 @@ function setup() {
 
 function draw() {
   background(164, 217, 224);
-  figures.forEach(function (figure, index) {
+  strokeWeight(1);
+  figures.forEach(function (figure) {
     if (figure.posX < 0 || figure.posX > WIDTH || figure.posY < 0 || figure.posY > HEIGHT || figure.diameter > MAX_BALL_DIAMETER || figure.diagonal > MAX_RECT_DIAGONAL) {
       popSound.play();
-      figures.splice(index, 1);
-      return;
+      figure.isStay = false;
     }
-    for (let i = 0; i < figures.length; i++) {
-      if (figures[i] == figure) {
-        continue;
-      }
-      else {
-        if ((figure instanceof Ball && figures[i] instanceof Ball) || (figure instanceof Ball && figures[i] instanceof Pacman) ||
-          (figure instanceof Pacman && figures[i] instanceof Ball) || (figure instanceof Pacman && figures[i] instanceof Pacman)) {
-          let distance = dist(figure.posX, figure.posY, figures[i].posX, figures[i].posY);
-          if (distance <= (figure.diameter / 2 + figures[i].diameter / 2)) {
-            popSound.play();
-            figures.splice(index, 1);
-            figures.splice(i - 1 < 0 ? i : i - 1, 1);
-          }
+    else {
+      for (let i = 0; i < figures.length; i++) {
+        if (figures[i] == figure) {
+          continue;
         }
-
-        if ((figure instanceof Ball && figures[i] instanceof Rectangle) || (figure instanceof Pacman && figures[i] instanceof Rectangle)) {
-          let testX = figure.posX;
-          let testY = figure.posY;
-
-          if (figure.posX < figures[i].posX) testX = figures[i].posX;
-          else if (figure.posX > figures[i].posX + figures[i].width) testX = figures[i].posX + figures[i].width
-          if (figure.posY < figures[i].posY) testY = figures[i].posY;
-          else if (figure.posY > figures[i].posY + figures[i].height) testY = figures[i].posY + figures[i].height;
-
-          let distX = figure.posX - testX;
-          let distY = figure.posY - testY;
-          let distance = Math.sqrt((distX * distX) + (distY * distY));
-
-          if (distance <= figure.diameter / 2) {
-            popSound.play();
-            figures.splice(index, 1);
-            figures.splice(i - 1 < 0 ? i : i - 1, 1);
+        else {
+          if ((figure instanceof Ball && figures[i] instanceof Ball) || (figure instanceof Ball && figures[i] instanceof Pacman) ||
+            (figure instanceof Pacman && figures[i] instanceof Ball) || (figure instanceof Pacman && figures[i] instanceof Pacman)) {
+            let distance = dist(figure.posX, figure.posY, figures[i].posX, figures[i].posY);
+            if (distance <= (figure.diameter / 2 + figures[i].diameter / 2)) {
+              popSound.play();
+              figure.isStay = false;
+              figures[i].isStay = false;
+            }
           }
-        }
 
-        if ((figure instanceof Rectangle && figures[i] instanceof Ball) || (figure instanceof Rectangle && figures[i] instanceof Pacman)) {
-          let testX = figures[i].posX;
-          let testY = figures[i].posY;
+          if ((figure instanceof Ball && figures[i] instanceof Rectangle) || (figure instanceof Pacman && figures[i] instanceof Rectangle)) {
+            let testX = figure.posX;
+            let testY = figure.posY;
 
-          if (figures[i].posX < figure.posX) testX = figure.posX;
-          else if (figures[i].posX > figure.posX + figure.width) testX = figure.posX + figure.width
-          if (figures[i].posY < figure.posY) testY = figure.posY;
-          else if (figures[i].posY > figure.posY + figure.height) testY = figure.posY + figure.height;
+            if (figure.posX < figures[i].posX) testX = figures[i].posX;
+            else if (figure.posX > figures[i].posX + figures[i].width) testX = figures[i].posX + figures[i].width
+            if (figure.posY < figures[i].posY) testY = figures[i].posY;
+            else if (figure.posY > figures[i].posY + figures[i].height) testY = figures[i].posY + figures[i].height;
 
-          let distX = figures[i].posX - testX;
-          let distY = figures[i].posY - testY;
-          let distance = Math.sqrt((distX * distX) + (distY * distY));
+            let distX = figure.posX - testX;
+            let distY = figure.posY - testY;
+            let distance = Math.sqrt((distX * distX) + (distY * distY));
 
-          if (distance <= figures[i].diameter / 2) {
-            popSound.play();
-            figures.splice(index, 1);
-            figures.splice(i - 1 < 0 ? i : i - 1, 1);
+            if (distance <= figure.diameter / 2) {
+              popSound.play();
+              figure.isStay = false;
+              figures[i].isStay = false;
+            }
           }
-        }
 
-        if (figure instanceof Rectangle && figures[i] instanceof Rectangle) {
-          if (figure.posX + figure.width >= figures[i].posX &&
-            figure.posX <= figures[i].posX + figures[i].width &&
-            figure.posY + figure.height >= figures[i].posY &&
-            figure.posY <= figures[i].posY + figures[i].height) {
-            popSound.play();
-            figures.splice(index, 1);
-            figures.splice(i - 1 < 0 ? i : i - 1, 1);
+          if ((figure instanceof Rectangle && figures[i] instanceof Ball) || (figure instanceof Rectangle && figures[i] instanceof Pacman)) {
+            let testX = figures[i].posX;
+            let testY = figures[i].posY;
+
+            if (figures[i].posX < figure.posX) testX = figure.posX;
+            else if (figures[i].posX > figure.posX + figure.width) testX = figure.posX + figure.width
+            if (figures[i].posY < figure.posY) testY = figure.posY;
+            else if (figures[i].posY > figure.posY + figure.height) testY = figure.posY + figure.height;
+
+            let distX = figures[i].posX - testX;
+            let distY = figures[i].posY - testY;
+            let distance = Math.sqrt((distX * distX) + (distY * distY));
+
+            if (distance <= figures[i].diameter / 2) {
+              popSound.play();
+              figure.isStay = false;
+              figures[i].isStay = false;
+            }
+          }
+
+          if (figure instanceof Rectangle && figures[i] instanceof Rectangle) {
+            if (figure.posX + figure.width >= figures[i].posX &&
+              figure.posX <= figures[i].posX + figures[i].width &&
+              figure.posY + figure.height >= figures[i].posY &&
+              figure.posY <= figures[i].posY + figures[i].height) {
+              popSound.play();
+              figure.isStay = false;
+              figures[i].isStay = false;
+            }
           }
         }
       }
     }
+    figures = figures.filter(figure => figure.isStay);
+
     if (figure.chaos) {
       figure.moveChaos();
     }
+
     figure.render();
   })
 }
@@ -126,15 +131,14 @@ function createFigure() {
       break
   }
   figures.push(figure);
+  figures[figures.length - 1].chaos = direction == 6;
+  figures[figures.length - 1].direction = direction;
 }
 
 function move(dir) {
+  direction = dir;
   figures.forEach(figure => {
-    if (dir == 6) {
-      figure.chaos = true;
-    } else {
-      figure.chaos = false;
-    }
+    figure.chaos = direction == 6;
     figure.direction = dir;
   })
 }
