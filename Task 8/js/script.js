@@ -11,31 +11,20 @@ function preload() {
 }
 
 function setup() {
+  let cannon = new Cannon(cannonImg, cannonImg.width / 2, cannonImg.height / 2);
+
   cnv = createCanvas(WIDTH, HEIGHT);
-  cnv.mouseMoved(moveCannon);
+  cnv.mouseMoved(cannon.moveCannon);
 
   background(164, 217, 224);
 
   imageMode(CENTER);
-  CANNON_WIDTH = cannonImg.width / 2;
-  CANNON_HEIGHT = cannonImg.height / 2;
   translate(30, 485);
-  image(cannonImg, 0, 0, CANNON_WIDTH, CANNON_HEIGHT);
+  image(cannon.image, 0, 0, cannon.width, cannon.height);
 
   frameRate(60);
 }
 
 function draw() {
-}
-
-function moveCannon() {
-  let angleRad = Math.atan((mouseY - 485) / (mouseX - 30));
-  let angleDegrees = 180 * angleRad / PI;
-  if (angleDegrees >= -90 && angleDegrees <=0) {
-    background(164, 217, 224);  
-    translate(30, 485);
-    rotate(angleRad);
-    image(cannonImg, 0, 0, CANNON_WIDTH, CANNON_HEIGHT);
-  }
 }
 
