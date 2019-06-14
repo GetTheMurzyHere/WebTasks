@@ -17,7 +17,6 @@ function setup() {
   cnv = createCanvas(WIDTH, HEIGHT);
 
   cannon = new Cannon(cannonImg, cannonImg.width / 2, cannonImg.height / 2)
-  // cnv.mouseMoved(cannon.move);
   cnv.mouseClicked(cannon.shoot);
 
   background(164, 217, 224);
@@ -38,11 +37,20 @@ function draw() {
   translate(30, 485);
   cannon.move();
   pop();
+  if (shots.length != 0) {
+    shots.forEach((shot) => {
+      if ((shot.time >= shot.endTime)) {
+        shot.stay = false;
+      }
+      else {
+        push();
+        translate(30, 485);
+        shot.move();
+        pop();
+      }
+    })
+  }
 
-
-  // if (shots.length != 0) {
-  //   image(shots[0].image, shots[0].posX, shots[0].posY, shots[0].radius + 41.6, shots[0].radius);
-  // }
-  // pop();
+  shots = shots.filter(shot => shot.stay);
 }
 

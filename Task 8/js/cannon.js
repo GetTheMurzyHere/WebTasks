@@ -10,9 +10,10 @@ class Cannon {
 
   move = () => {
     if (mouseX < 30) {
-      rotate(3 * PI / 2);
+      let rads = -HALF_PI;
+      rotate(rads);
       image(this.image, 0, 0, this.width, this.height);
-      this.angle = 3 * PI / 2;
+      this.angle = rads;
       return;
     }
     if (mouseY > 485) {
@@ -26,12 +27,9 @@ class Cannon {
     image(this.image, 0, 0, this.width, this.height);
     this.angle = angleRad;
   }
-  
+
   shoot = () => {
-    let shot = new Cannonball(klevchImg, 100, klevchImg.height / 10);
+    let shot = new Cannonball(klevchImg, 80, klevchImg.height / 10, this.angle);
     shots.push(shot);
-    shots.forEach((shot) => {
-      shot.move(this.angle, this);
-    })
   }
 }
