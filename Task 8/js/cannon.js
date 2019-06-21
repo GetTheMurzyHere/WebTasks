@@ -6,6 +6,7 @@ class Cannon {
     this.width = width;
     this.height = height;
     this.angle;
+    this.isFired = false;
   }
 
   move = () => {
@@ -28,11 +29,20 @@ class Cannon {
     this.angle = angleRad;
   }
 
-  shoot = () => {
-    let normalizeX = (mouseX - 30) / cannon.width / 2;
-    let normalizeY = (mouseY - 485) / cannon.width / 2;
+  reload = () => {
+    setTimeout(() => { this.isFired = false }, 1300);
+  }
 
-    let shot = new Cannonball(klevchImg, 110, klevchImg.height / 10, this.angle, normalizeX, normalizeY);
-    shots.push(shot);
+  shoot = () => {
+    if (!this.isFired) {
+      this.isFired = true;
+
+      let normalizeX = (mouseX - 30) / cannon.width / 2;
+      let normalizeY = (mouseY - 485) / cannon.width / 2;
+
+      let shot = new Cannonball(klevchImg, 110, klevchImg.height / 10, this.angle, normalizeX, normalizeY);
+      shots.push(shot);
+      this.reload(second());
+    }
   }
 }
