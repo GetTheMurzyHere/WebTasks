@@ -6,12 +6,22 @@ const HEIGHT = 500;
 
 let cannon;
 let shots = [];
+let enemies = [];
+
+function spawnEnemies(count) {
+  let delta = 0;
+  for (let i = 0; i < count; i++) {
+    let enemy = new AirEnemy(klevchImg, klevchImg.width / 10);
+    enemy.posX += delta;
+    enemies.push(enemy);
+    delta += 175;
+  }
+}
 
 function preload() {
   cannonImg = loadImage('assets/img/cannon.png');
   klevchImg = loadImage('assets/img/klevch.png');
 }
-
 
 function setup() {
   cnv = createCanvas(WIDTH, HEIGHT);
@@ -25,36 +35,47 @@ function setup() {
   push();
   translate(30, 485);
   image(cannon.image, 0, 0, cannon.width, cannon.height);
-
   pop();
 
+  spawnEnemies(10);
+
   frameRate(60);
+
 }
 
 function draw() {
-
-  background(164, 217, 224); 
+  background(164, 217, 224);
   if (shots.length != 0) {
     shots.forEach((shot) => {
       if ((shot.posX >= WIDTH || shot.posY >= HEIGHT)) {
         shot.stay = false;
       }
       else {
-        push();
-        translate(30 + shot.startX * cannon.width / 2, 485 + shot.startY * cannon.width / 2);
-        shot.move();
-        image(shot.image, shot.posX, shot.posY, shot.radius + 41.6, shot.radius);
-        pop();
+        for (let i = 0; i < enemies.length; i++) {
+          if (enemies[i] instanceof AirEnemy) {
+            let distance = dist(shot.posX + (30 + shot.startX * cannon.width / 2), shot.posY + (485 + shot.startY * cannon.width / 2), enemies[i].posX, enemies[i].posY);
+            if (distance <= (shot.diameter / 2 + enemies[i].diameter / 2)) {
+              shot.stay = false;
+              enemies[i].stay = false;
+            }
+          }
+        }
       }
+      shots = shots.filter((shot) => shot.stay);
+      enemies = enemies.filter((enemy) => enemy.stay);
+      push();
+      translate(30 + shot.startX * cannon.width / 2, 485 + shot.startY * cannon.width / 2);
+      shot.render();
+      pop();
     })
   }
+  enemies.forEach((enemy) => {
+    enemy.render();
+  })
   push();
   translate(30, 485);
   cannon.move();
   pop();
   fill("rgb(18, 187, 74)");
   circle(13, HEIGHT + 25, cannon.width);
-
-  shots = shots.filter((shot) => shot.stay);
 }
-

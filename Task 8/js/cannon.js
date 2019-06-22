@@ -1,8 +1,8 @@
 class Cannon {
   constructor(img, width, height) {
     this.image = img;
-    this.x = 0;
-    this.y = 0;
+    this.posX = 0;
+    this.posY = 0;
     this.width = width;
     this.height = height;
     this.angle;
@@ -40,9 +40,9 @@ class Cannon {
       let normalizeX = (mouseX - 30) / cannon.width / 2;
       let normalizeY = (mouseY - 485) / cannon.width / 2;
 
-      let shot = new Cannonball(klevchImg, 110, klevchImg.height / 10, this.angle, normalizeX, normalizeY);
+      let shot = new Cannonball(klevchImg, 110, klevchImg.width / 10, this.angle, normalizeX, normalizeY);
       shots.push(shot);
-      this.reload(second());
+      this.reload();
     }
   }
 }
