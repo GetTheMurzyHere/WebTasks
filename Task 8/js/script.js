@@ -48,7 +48,8 @@ function draw() {
   background(164, 217, 224);
   if (lifes.length == 0) {
     noLoop();
-    alert('пизда тебе');
+    // $('.container').slideToggle('slow');
+    // $('#score').html("Ваш счёт: " + score + " очков.")
   }
   textFont(handyFont);
   fill('#000000');

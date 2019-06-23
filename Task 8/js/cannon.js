@@ -29,8 +29,10 @@ class Cannon {
     this.angle = angleRad;
   }
 
-  reload = () => {
-    setTimeout(() => { this.isFired = false }, 1300);
+  reload() {
+    setTimeout(() => {
+      this.isFired = false;
+    }, 1300);
   }
 
   shoot = () => {
