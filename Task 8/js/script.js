@@ -12,11 +12,13 @@ let shots = [];
 let enemies = [];
 let lifes = [];
 
+let score = 0;
+
 function preload() {
   cannonImg = loadImage('assets/img/cannon.png');
   klevchImg = loadImage('assets/img/klevch.png');
   heartImg = loadImage('assets/img/heart.png');
-  
+
   handyFont = loadFont('assets/fonts/hAndy.ttf');
 }
 
@@ -44,11 +46,14 @@ function setup() {
 
 function draw() {
   background(164, 217, 224);
+  if (lifes.length == 0) {
+    noLoop();
+    alert('пизда тебе');
+  }
   textFont(handyFont);
   fill('#000000');
   textSize(32);
-  let score = "Очки: "
-  text(score, 130, 25)
+  text("Очки: " + score, 130, 25)
   if (shots.length != 0) {
     shots.forEach((shot) => {
       if ((shot.posX >= WIDTH || shot.posY >= HEIGHT)) {
@@ -61,6 +66,7 @@ function draw() {
             if (distance <= (shot.diameter / 2 + enemies[i].diameter / 2)) {
               shot.stay = false;
               enemies[i].stay = false;
+              score += 10;
             }
           }
         }
@@ -74,14 +80,15 @@ function draw() {
     })
   }
   enemies.forEach((enemy) => {
-    if(enemy.posX <= 35) {
+    if (enemy.posX <= 35) {
       lifes.pop();
       enemies.shift();
     }
+  })
+  enemies.forEach((enemy) => {
     enemy.render();
   })
   drawLifes();
-
   fill("#ffffff");
   line(35, 500, 35, 0)
   push();
