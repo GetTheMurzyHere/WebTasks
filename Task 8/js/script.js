@@ -1,8 +1,12 @@
+let isPlaying = false;
+
+let canvas;
 let handyFont;
 
 let cannonImg;
 let klevchImg;
-let heartImg;
+let lifeImg;
+let lostLifeImg;
 
 const WIDTH = 850;
 const HEIGHT = 500;
@@ -11,26 +15,44 @@ let cannon;
 let shots = [];
 let enemies = [];
 let lifes = [];
+let lifesLeft = 3;
+let gameStarted = false;
 
 let score = 0;
+
+function playAgain() {
+  $('#menu-window').slideUp('slow');
+  $('#lose-window').slideUp('slow');
+  gameStarted = true;
+  shots = [];
+  enemies = [];
+  lifes = [lifeImg, lifeImg, lifeImg];
+  score = 0;
+  spawnEnemies(10);
+  loop();
+}
 
 function preload() {
   cannonImg = loadImage('assets/img/cannon.png');
   klevchImg = loadImage('assets/img/klevch.png');
-  heartImg = loadImage('assets/img/heart.png');
+  lifeImg = loadImage('assets/img/heart.png');
+  lostLifeImg = loadImage('assets/img/greyheart.png')
 
   handyFont = loadFont('assets/fonts/hAndy.ttf');
 }
 
-
 function setup() {
-  cnv = createCanvas(WIDTH, HEIGHT);
+  // if (!isPlaying) {
+  //   noCanvas();
+  // }
+  // else {
+  canvas = createCanvas(WIDTH, HEIGHT);
   background(164, 217, 224);
 
-  lifes = [heartImg, heartImg, heartImg];
+  lifes = [lifeImg, lifeImg, lifeImg];
 
   cannon = new Cannon(cannonImg, cannonImg.width / 2, cannonImg.height / 2)
-  cnv.mouseClicked(cannon.shoot);
+  canvas.mouseClicked(() => cannon.shoot());
 
   imageMode(CENTER);
 
@@ -42,15 +64,16 @@ function setup() {
   spawnEnemies(10);
 
   frameRate(60);
+  // }
 }
 
+
 function draw() {
+  // if (!isPlaying) {
+  //   return;
+  // }
+  // console.log(1)
   background(164, 217, 224);
-  if (lifes.length == 0) {
-    noLoop();
-    // $('.container').slideToggle('slow');
-    // $('#score').html("Ваш счёт: " + score + " очков.")
-  }
   textFont(handyFont);
   fill('#000000');
   textSize(32);
@@ -82,10 +105,19 @@ function draw() {
   }
   enemies.forEach((enemy) => {
     if (enemy.posX <= 35) {
-      lifes.pop();
+      lifes[lifesLeft - 1] = lostLifeImg;
+      lifesLeft--;
       enemies.shift();
     }
   })
+
+  if (lifesLeft == 0) {
+    lifesLeft = 3;
+    noLoop();
+    $('#lose-window').slideDown('slow');
+    $('#score').html("Ваш счёт: " + score + " очков.");
+  }
+
   enemies.forEach((enemy) => {
     enemy.render();
   })
@@ -98,6 +130,14 @@ function draw() {
   pop();
   fill("rgb(18, 187, 74)");
   circle(13, HEIGHT + 25, cannon.width);
+  fill("#ffffff");
+
+  textSize(28);
+  text(cannon.timeToReload > 0 ? Math.round(cannon.timeToReload * 100) / 100 : 'OK!', 5, 490);
+
+  if (!gameStarted) {
+    noLoop();
+  }
 }
 
 function spawnEnemies(count) {

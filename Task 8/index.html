@@ -8,24 +8,45 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="js/script.js"></script>
+    <!-- <script>
+        function play() {
+            isPlaying = true;
+            $('#start-window').hide();
+            setup();
+    }
+    </script> -->
 </head>
 
 <body>
-    <div class="container" style="position: absolute; display: block; width: 850px; height: 500px; text-align: center; margin: 140px 175px">
-        <div id="lose-window">
-            <h2 id="lose-title">Вы проиграли!</h2>
+    <!-- <div id="start-window">
+        <button onclick="play()">играть</button>
+    </div> -->
+    <div id="lose-window" class="container"
+        style="position: absolute; display: none; width: 850px; height: 500px; text-align: center; padding-top: 250px; padding-left: 340px;">
+        <div>
+            <h2 class="popup-title">Вы проиграли!</h2>
             <div class="lose-description">
-                <div style="text-align: center">Клевчихин пробрался в вашу группу и отчислили всех её участников!</div>
+                <div style="text-align: center">Клевчихин пробрался в вашу группу и отчислил всех её участников!</div>
                 <div style="margin: 10px 10px 10px 10px; text-align: center" id="score">
-                    adad
                 </div>
+                <div style="color: #FFF; font-size: 32; font-weight: bold; margin-bottom: 10px">Вы можете купить
+                    усокорение перезарядки, отошлите СМС на номер "+7 927 021 41 67" с тестом "ХАчУ"</div>
             </div>
-            <div id="play-again-btn">
+            <div onclick="playAgain()" class="btn">
                 Начать новую игру
             </div>
         </div>
     </div>
-    <script src="js/script.js"></script>
+    <div id="menu-window" class="container"
+        style="position: absolute; display: block; width: 850px; height: 500px; text-align: center; padding-top: 250px; padding-left: 340px;">
+        <div id="menu">
+            <h2 class="popup-title">Klevch Escape</h2>
+            <div>
+                <button onclick="playAgain()"  class="btn">Начать игру</button>
+            </div>
+        </div>
+    </div>
     <script src="js/cannon.js"></script>
     <script src="js/cannonball.js"></script>
     <script src="js/enemy.js"></script>

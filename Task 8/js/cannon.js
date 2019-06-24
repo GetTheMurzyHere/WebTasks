@@ -6,10 +6,11 @@ class Cannon {
     this.width = width;
     this.height = height;
     this.angle;
-    this.isFired = false;
+    this.timeToReload = 0;
+    this.reloadInterval;
   }
 
-  move = () => {
+  move() {
     if (mouseX < 30) {
       let rads = -HALF_PI;
       rotate(rads);
@@ -30,14 +31,20 @@ class Cannon {
   }
 
   reload() {
-    setTimeout(() => {
-      this.isFired = false;
-    }, 1300);
+    this.timeToReload = 1.5;
+    var self = this;
+    this.reloadInterval = setInterval(() => {
+      self.timeToReload -= 0.005;
+    }, 5);
   }
 
-  shoot = () => {
-    if (!this.isFired) {
-      this.isFired = true;
+  shoot(){
+    if (this.timeToReload <= 0) {
+
+      if(this.reloadInterval !== null) {
+         clearInterval(this.reloadInterval);
+}
+      console.log(this.timeToReload);
 
       let normalizeX = (mouseX - 30) / cannon.width / 2;
       let normalizeY = (mouseY - 485) / cannon.width / 2;
