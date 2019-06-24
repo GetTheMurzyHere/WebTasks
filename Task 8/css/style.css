@@ -24,13 +24,14 @@ canvas {
     color: #000000;
 }
 
-#lose-description {
+.description {
     display: flex;
     flex-direction: column;
     text-align: center
 }
 
 .btn {
+    margin: 20px;
     transition: .3s;
     cursor: pointer;
     background: #3bb355;

@@ -4,36 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mini-game</title>
+    <title>Klevch Defense</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="js/script.js"></script>
-    <!-- <script>
-        function play() {
-            isPlaying = true;
-            $('#start-window').hide();
-            setup();
-    }
-    </script> -->
 </head>
 
 <body>
-    <!-- <div id="start-window">
-        <button onclick="play()">играть</button>
-    </div> -->
     <div id="lose-window" class="container"
         style="position: absolute; display: none; width: 850px; height: 500px; text-align: center; padding-top: 250px; padding-left: 340px;">
         <div>
             <h2 class="popup-title">Вы проиграли!</h2>
-            <div class="lose-description">
+            <div class="description">
                 <div style="text-align: center">Клевчихин пробрался в вашу группу и отчислил всех её участников!</div>
                 <div style="margin: 10px 10px 10px 10px; text-align: center" id="score">
                 </div>
-                <div style="color: #FFF; font-size: 32; font-weight: bold; margin-bottom: 10px">Вы можете купить
-                    усокорение перезарядки, отошлите СМС на номер "+7 927 021 41 67" с тестом "ХАчУ"</div>
             </div>
-            <div onclick="playAgain()" class="btn">
+            <div onclick="play()" class="btn">
                 Начать новую игру
             </div>
         </div>
@@ -41,10 +29,15 @@
     <div id="menu-window" class="container"
         style="position: absolute; display: block; width: 850px; height: 500px; text-align: center; padding-top: 250px; padding-left: 340px;">
         <div id="menu">
-            <h2 class="popup-title">Klevch Escape</h2>
-            <div>
-                <button onclick="playAgain()"  class="btn">Начать игру</button>
+            <h2 class="popup-title">Klevch Defense</h2>
+            <div class="description">
+                <div style="text-align: center">
+                    Ваша задача - защитить своих товарищей от рук коварного Юрия
+                    Александровича, который СТРЕМИТСЯ К ОТЧИСЛЕНИЮ
+                    ВСЕЙ ГРУППЫ!
+                </div>
             </div>
+            <div onclick="play()" class="btn" style="width: 125px">Играть!</div>
         </div>
     </div>
     <script src="js/cannon.js"></script>

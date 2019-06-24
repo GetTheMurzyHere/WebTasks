@@ -2,9 +2,9 @@ class Enemy {
   constructor(img) {
     this.image = img;
     this.posX = 950;
-    this.posY = random(40, 200);
+    this.posY = random(40, 250);
     this.stay = true;
-    this.speed = 3;
+    this.speed = 1.5;
     this.velocity = random(0.02);
   }
 

@@ -30,28 +30,28 @@ class Cannon {
     this.angle = angleRad;
   }
 
-  reload() {
-    this.timeToReload = 1.5;
+  reload(time) {
+    this.timeToReload = time;
     var self = this;
     this.reloadInterval = setInterval(() => {
       self.timeToReload -= 0.005;
     }, 5);
   }
 
-  shoot(){
+  shoot() {
     if (this.timeToReload <= 0) {
 
-      if(this.reloadInterval !== null) {
-         clearInterval(this.reloadInterval);
-}
-      console.log(this.timeToReload);
+      if (this.reloadInterval !== null) {
+        clearInterval(this.reloadInterval);
+      }
 
       let normalizeX = (mouseX - 30) / cannon.width / 2;
       let normalizeY = (mouseY - 485) / cannon.width / 2;
 
-      let shot = new Cannonball(klevchImg, 110, klevchImg.width / 10, this.angle, normalizeX, normalizeY);
+      let shot = new Cannonball(klevchImg, 95, klevchImg.width / 10, this.angle, normalizeX, normalizeY);
       shots.push(shot);
-      this.reload();
+      let time = 1;
+      this.reload(time);
     }
   }
 }
