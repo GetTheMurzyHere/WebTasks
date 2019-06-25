@@ -50,7 +50,18 @@ class Cannon {
 
       let shot = new Cannonball(klevchImg, 95, klevchImg.width / 10, this.angle, normalizeX, normalizeY);
       shots.push(shot);
-      let time = 1;
+      let time;
+      switch (level) {
+        case 1:
+          time = 1.5;
+          break;
+        case 2 || 3:
+          time = 1;
+          break;
+        default:
+          time = 0.7;
+          break;
+      }
       this.reload(time);
     }
   }

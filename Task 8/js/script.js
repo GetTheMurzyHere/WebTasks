@@ -12,7 +12,6 @@ let matafonovImg;
 let shepelevaImg;
 let suschenkoImg;
 
-
 let lifeImg;
 let lostLifeImg;
 
@@ -22,11 +21,14 @@ const HEIGHT = 500;
 let cannon;
 let shots = [];
 let enemies = [];
+let enemyCount = 10;
 let lifes = [];
 let lifesLeft = 3;
 let gameStarted = false;
-
 let score = 0;
+let level = 1;
+let boss;
+let bossHeath = 10;
 
 function preload() {
   cannonImg = loadImage('assets/img/cannon.png');
@@ -43,6 +45,7 @@ function preload() {
   lostLifeImg = loadImage('assets/img/greyheart.png');
 
   handyFont = loadFont('assets/fonts/hAndy.ttf');
+
 }
 
 function setup() {
@@ -56,7 +59,8 @@ function setup() {
 
   imageMode(CENTER);
 
-  spawnEnemies(10);
+  spawnEnemies(enemyCount);
+  boss = new Boss(klevchImg);
 
   frameRate(60);
 }
@@ -64,36 +68,66 @@ function setup() {
 function play() {
   $('#menu-window').slideUp('slow');
   $('#lose-window').slideUp('slow');
+  level = 1;
+  enemyCount = 10;
   gameStarted = true;
   shots = [];
   enemies = [];
   lifes = [lifeImg, lifeImg, lifeImg];
   score = 0;
-  spawnEnemies(10);
+  spawnEnemies(enemyCount);
   loop();
 }
 
 function draw() {
   if (gameStarted) {
-
+    if (enemies.length == 0 && lifesLeft != 0) {
+      level++;
+      enemyCount += 5;
+      gameStarted = false;
+      $('#win-lvl-window').slideDown('slow');
+      setTimeout(() => {
+        $('#win-lvl-window').slideUp('slow');
+        spawnEnemies(enemyCount);
+        gameStarted = true;
+      }, 3500)
+    }
     background(164, 217, 224);
     textFont(handyFont);
     fill('#000000');
     textSize(32);
-    text("Очки: " + score, 130, 25)
+    text("Очки: " + score, 140, 25)
+    if (level == 4) {
+      if (bossHeath > 0) boss.render();
+    }
     if (shots.length != 0) {
       shots.forEach((shot) => {
         if ((shot.posX >= WIDTH || shot.posY >= HEIGHT)) {
           shot.stay = false;
         }
         else {
-          for (let i = 0; i < enemies.length; i++) {
-            if (enemies[i] instanceof AirEnemy) {
-              let distance = dist(shot.posX + (30 + shot.startX * cannon.width / 2), shot.posY + (485 + shot.startY * cannon.width / 2), enemies[i].posX, enemies[i].posY);
-              if (distance <= (shot.diameter / 2 + enemies[i].diameter / 2)) {
+          if (level != 4) {
+            for (let i = 0; i < enemies.length; i++) {
+              if (enemies[i] instanceof AirEnemy) {
+                let distance = dist(shot.posX + (30 + shot.startX * cannon.width / 2), shot.posY + (485 + shot.startY * cannon.width / 2), enemies[i].posX, enemies[i].posY);
+                if (distance <= (shot.diameter / 2 + enemies[i].diameter / 2)) {
+                  shot.stay = false;
+                  enemies[i].stay = false;
+                  score += 10;
+                }
+              }
+            }
+          }
+          else {
+            if (bossHeath > 0) {
+              let distance = dist(shot.posX + (30 + shot.startX * cannon.width / 2), shot.posY + (485 + shot.startY * cannon.width / 2), boss.posX, boss.posY);
+              if (distance <= (shot.diameter / 2 + boss.diameter / 2)) {
                 shot.stay = false;
-                enemies[i].stay = false;
-                score += 10;
+                bossHeath--;
+              }
+              if (bossHeath == 0) {
+                boss = undefined;
+                delete (boss);
               }
             }
           }
@@ -106,6 +140,7 @@ function draw() {
         pop();
       })
     }
+
     enemies.forEach((enemy) => {
       if (enemy.posX <= 35) {
         lifes[lifesLeft - 1] = lostLifeImg;
@@ -124,9 +159,13 @@ function draw() {
     enemies.forEach((enemy) => {
       enemy.render();
     })
+
     drawLifes();
-    fill("#ffffff");
-    line(35, 500, 35, 0)
+    stroke('#B22222');
+    strokeWeight(3);
+    line(35, 500, 35, 0);
+    stroke('#000000');
+    strokeWeight(1);
     push();
     translate(30, 485);
     cannon.move();
@@ -145,7 +184,7 @@ function spawnEnemies(count) {
   for (let i = 0; i < count; i++) {
     let face;
     let temp = Math.round(random(1, 6));
-    switch(temp) {
+    switch (temp) {
       case 1:
         face = baranovImg;
         break;
@@ -173,7 +212,7 @@ function spawnEnemies(count) {
 }
 
 function drawLifes() {
-  let x = 50;
+  let x = 60;
   lifes.forEach((life) => {
     image(life, x, 16, life.width / 10, life.height / 10);
     x += 30
