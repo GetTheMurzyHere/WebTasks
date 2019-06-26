@@ -33,7 +33,7 @@ canvas {
 .btn {
     text-align: center;
     width: 200px;
-    margin-top: 10px;
+    margin-top: 5px;
     transition: .3s;
     cursor: pointer;
     background: #3bb355;
@@ -55,9 +55,7 @@ canvas {
 
 #scoreboard-window {
     padding: 0 10px 0 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: none;
     background: #ace6ac;
     width: 500px;
     height: 300px;
@@ -65,11 +63,11 @@ canvas {
     border: 2px black solid;
 }
 
-#scoreboard::-webkit-scrollbar { 
+#scoreboard-menu::-webkit-scrollbar { 
     display: none; 
 }
 
-#scoreboard {
+#scoreboard-menu {
     margin-top: 10px;
     width: inherit;
     height: 225px;
@@ -77,9 +75,10 @@ canvas {
     overflow: auto; 
 }
 
-.nickname {
+#nickname {
     transition: .3s;
-    border: 1px black solid
+    border: 1px black solid;
+    margin-bottom: 4px;
 }
 
 thead td {

@@ -25,7 +25,6 @@ let enemyCount = 10;
 let lifes = [];
 let lifesLeft = 3;
 let gameStarted = false;
-let startCheck = 1;
 let score = 0;
 let level;
 let boss;
@@ -69,9 +68,16 @@ function setup() {
 }
 
 function play() {
+  nickname = $('#nickname').val();
+  if (nickname == "") {
+    $('#nickname').css('background', '#f3a0a0');
+    setTimeout(() => {
+      $('#nickname').css('background', '#ffffff');
+    }, 300);
+    return;
+  }
   $('#menu-window').slideUp('slow');
   $('#lose-window').slideUp('slow');
-  startCheck == 1 ? nickname = $('#start-nickname').val() : nickname = $('#new-nickname').val()
   localStorage.setItem(nickname, 0);
   level = 1;
   enemyCount = 10;
@@ -101,15 +107,16 @@ function draw() {
     textFont(handyFont);
     fill('#000000');
     textSize(32);
-    text("Очки: " + score, 140, 25)
+    text('Очки: ' + score, 140, 25)
     if (level == 4) {
       if (bossHeath > 0) {
         boss.render();
       }
       else {
         $('#win-game-window').slideDown('slow');
-        $('.score').html("Ваш счёт: " + score + " очков.");
+        $('.score').html('Ваш счёт: ' + score + ' очков.');
         localStorage.setItem(nickname, score);
+        noLoop();
         gameStarted = false;
       }
     }
@@ -163,8 +170,7 @@ function draw() {
       lifesLeft = 3;
       noLoop();
       $('#lose-window').slideDown('slow');
-      $('.score').html("Ваш счёт: " + score + " очков.");
-      startCheck++;
+      $('.score').html('Ваш счёт: ' + score + ' очков.');
       localStorage.setItem(nickname, score);
     }
 
@@ -179,9 +185,9 @@ function draw() {
     stroke('#000000');
     strokeWeight(1);
     cannon.render();
-    fill("rgb(18, 187, 74)");
+    fill('rgb(18, 187, 74)');
     circle(13, HEIGHT + 25, cannon.width);
-    fill("#ffffff");
+    fill('#ffffff');
 
     textSize(28);
     text(cannon.timeToReload > 0 ? Math.round(cannon.timeToReload * 100) / 100 : 'OK!', 5, 490);
@@ -229,14 +235,23 @@ function drawLifes() {
 }
 
 function toMenu() {
+  background(164, 217, 224);
   $('#scoreboard-window').slideUp('slow');
+  $('#lose-window').slideUp('slow');
   setTimeout(() => {
     $('#menu-window').slideDown('slow');
   }, 800)
 }
 
 function showScoreboard() {
-  $.each(localStorage, function(key, value) {
-
-  })
+  background(164, 217, 224);
+  $('#scoreboard').empty().append('<thead><tr><td>Никнейм</td><td>Очки</td></tr></thead>');
+  for (let i = 0; i < localStorage.length; i++) {
+    $('#scoreboard').append('<tr><td>' + localStorage.key(i) + '</td>' + '<td>' + localStorage.getItem(localStorage.key(i)) + '</td></tr>')
+  }
+  $('.container').slideUp('slow');
+  setTimeout(() => {
+    $('#scoreboard-window').slideDown('slow');
+    background(164, 217, 224);
+  }, 800)
 }

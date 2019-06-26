@@ -13,17 +13,15 @@
 
 <body>
     <div id="lose-window" class="container"
-        style="position: absolute; display: none; width: 850px; height: 500px; text-align: center; padding-top: 250px; padding-left: 340px;">
+        style="position: absolute; display: block; width: 850px; height: 500px; text-align: center; padding-top: 250px; padding-left: 340px;">
         <div>
-            <h2 class="popup-title">Вы проиграли!</h2>
+            <h2 class="popup-title" style="margin-bottom: 5px; margin-top: 35px">Вы проиграли!</h2>
             <div class="description">
-                <div style="text-align: center">Клевчихин пробрался в вашу группу и отчислил всех её участников!</div>
+                <div style="text-align: center; margin: 10px">Клевчихин пробрался в вашу группу и отчислил всех её участников!</div>
                 <div style="text-align: center" class="score">
                 </div>
             </div>
-            <input type="text" autocomplete="off" placeholder="Ваш никнейм" class="nickname" id="new-nickname"
-                style="margin-top: 5px">
-            <div onclick="play()" class="btn">
+            <div onclick="toMenu()" class="btn">
                 Начать новую игру
             </div>
             <div class="btn" onclick="showScoreboard()">
@@ -42,7 +40,7 @@
                     ВСЕЙ ГРУППЫ!
                 </div>
             </div>
-            <input type="text" autocomplete="off" placeholder="Ваш никнейм" class="nickname" id="start-nickname"
+            <input type="text" autocomplete="off" placeholder="Ваш никнейм" id="nickname"
                 style="margin-top: 10px">
             <div onclick="play()" class="btn" style="width: 145px">Играть!</div>
         </div>
@@ -65,33 +63,27 @@
     <div id="win-game-window" class="container"
         style="position: absolute; display: none; width: 850px; height: 500px; text-align: center; padding-top: 250px; padding-left: 340px;">
         <div>
-            <h2 class="popup-title">Вы победили!</h2>
+            <h2 class="popup-title" style="margin-top: 35px; margin-bottom: 0">Вы победили!</h2>
             <div class="description">
                 <div style="text-align: center">
-                    <p ые>
+                    <p>
                         Злой Клевчихин был побеждён благодаря вашим усилиям, поздравляем! С вашей помощью злому
                         математику не удалось захватить всю группу и отчислить её из университета!
                     </p>
                     <div style="text-align: center" class="score"></div>
                 </div>
             </div>
-            <div class="btn">
+            <div class="btn" onclick="showScoreboard()">
                 Рейтинг очков
             </div>
         </div>
     </div>
     <div id="scoreboard-window">
-        <div id="scoreboard">
-            <table>
-                <thead>
-                    <tr>
-                        <td>Никнейм</td>
-                        <td>Очки</td>
-                    </tr>
-                </thead>
+        <div id="scoreboard-menu">
+            <table id="scoreboard">
             </table>
         </div>
-        <div class="btn" onclick="toMenu()">
+        <div class="btn" onclick="toMenu()" style="margin-left: 140px">
             Вернуться к меню
         </div>
     </div>
