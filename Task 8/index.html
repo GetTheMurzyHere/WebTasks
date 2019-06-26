@@ -18,26 +18,33 @@
             <h2 class="popup-title">Вы проиграли!</h2>
             <div class="description">
                 <div style="text-align: center">Клевчихин пробрался в вашу группу и отчислил всех её участников!</div>
-                <div style="margin: 10px 10px 10px 10px; text-align: center" id="score">
+                <div style="text-align: center" class="score">
                 </div>
             </div>
+            <input type="text" autocomplete="off" placeholder="Ваш никнейм" class="nickname" id="new-nickname"
+                style="margin-top: 5px">
             <div onclick="play()" class="btn">
                 Начать новую игру
+            </div>
+            <div class="btn" onclick="showScoreboard()">
+                Рейтинг очков
             </div>
         </div>
     </div>
     <div id="menu-window" class="container"
-        style="position: absolute; display: block; width: 850px; height: 500px; text-align: center; padding-top: 250px; padding-left: 340px;">
+        style="position: absolute; display: none; width: 850px; height: 500px; text-align: center; padding-top: 250px; padding-left: 340px;">
         <div id="menu">
             <h2 class="popup-title">Klevch Defense</h2>
             <div class="description">
-                <div style="text-align: center">
+                <div style="text-align: center; padding: 4px">
                     Ваша задача - защитить своих товарищей от рук коварного Юрия
                     Александровича, который СТРЕМИТСЯ К ОТЧИСЛЕНИЮ
                     ВСЕЙ ГРУППЫ!
                 </div>
             </div>
-            <div onclick="play()" class="btn" style="width: 125px">Играть!</div>
+            <input type="text" autocomplete="off" placeholder="Ваш никнейм" class="nickname" id="start-nickname"
+                style="margin-top: 10px">
+            <div onclick="play()" class="btn" style="width: 145px">Играть!</div>
         </div>
     </div>
     <div id="win-lvl-window" class="container"
@@ -47,14 +54,46 @@
             <div class="description">
                 <div style="text-align: center">
                     <p>
-                    Вы сдержали волну зомбированных Клевчихиным преподавателей! Продолжайте
-                    в том же духе.<br>
-                    Будьте внимательны, эта волна будет сложнее!
+                        Вы сдержали волну зомбированных Клевчихиным преподавателей! Продолжайте
+                        в том же духе.<br>
+                        Будьте внимательны, эта волна будет сложнее!
                     </p>
                 </div>
             </div>
         </div>
     </div>
+    <div id="win-game-window" class="container"
+        style="position: absolute; display: none; width: 850px; height: 500px; text-align: center; padding-top: 250px; padding-left: 340px;">
+        <div>
+            <h2 class="popup-title">Вы победили!</h2>
+            <div class="description">
+                <div style="text-align: center">
+                    <p ые>
+                        Злой Клевчихин был побеждён благодаря вашим усилиям, поздравляем! С вашей помощью злому
+                        математику не удалось захватить всю группу и отчислить её из университета!
+                    </p>
+                    <div style="text-align: center" class="score"></div>
+                </div>
+            </div>
+            <div class="btn">
+                Рейтинг очков
+            </div>
+        </div>
+    </div>
+    <div id="scoreboard-window">
+        <div id="scoreboard">
+            <table>
+                <thead>
+                    <tr>
+                        <td>Никнейм</td>
+                        <td>Очки</td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="btn" onclick="toMenu()">
+            Вернуться к меню
+        </div>
     </div>
     <script src="js/cannon.js"></script>
     <script src="js/cannonball.js"></script>

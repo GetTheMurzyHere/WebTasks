@@ -30,6 +30,13 @@ class Cannon {
     this.angle = angleRad;
   }
 
+  render() {
+    push();
+    translate(30, 485);
+    this.move();
+    pop();
+  }
+
   reload(time) {
     this.timeToReload = time;
     var self = this;

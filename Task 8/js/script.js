@@ -25,10 +25,13 @@ let enemyCount = 10;
 let lifes = [];
 let lifesLeft = 3;
 let gameStarted = false;
+let startCheck = 1;
 let score = 0;
-let level = 1;
+let level;
 let boss;
 let bossHeath = 10;
+
+let nickname;
 
 function preload() {
   cannonImg = loadImage('assets/img/cannon.png');
@@ -68,6 +71,8 @@ function setup() {
 function play() {
   $('#menu-window').slideUp('slow');
   $('#lose-window').slideUp('slow');
+  startCheck == 1 ? nickname = $('#start-nickname').val() : nickname = $('#new-nickname').val()
+  localStorage.setItem(nickname, 0);
   level = 1;
   enemyCount = 10;
   gameStarted = true;
@@ -81,7 +86,7 @@ function play() {
 
 function draw() {
   if (gameStarted) {
-    if (enemies.length == 0 && lifesLeft != 0) {
+    if (enemies.length == 0 && lifesLeft != 0 && level != 4) {
       level++;
       enemyCount += 5;
       gameStarted = false;
@@ -98,7 +103,15 @@ function draw() {
     textSize(32);
     text("Очки: " + score, 140, 25)
     if (level == 4) {
-      if (bossHeath > 0) boss.render();
+      if (bossHeath > 0) {
+        boss.render();
+      }
+      else {
+        $('#win-game-window').slideDown('slow');
+        $('.score').html("Ваш счёт: " + score + " очков.");
+        localStorage.setItem(nickname, score);
+        gameStarted = false;
+      }
     }
     if (shots.length != 0) {
       shots.forEach((shot) => {
@@ -106,29 +119,26 @@ function draw() {
           shot.stay = false;
         }
         else {
-          if (level != 4) {
-            for (let i = 0; i < enemies.length; i++) {
-              if (enemies[i] instanceof AirEnemy) {
-                let distance = dist(shot.posX + (30 + shot.startX * cannon.width / 2), shot.posY + (485 + shot.startY * cannon.width / 2), enemies[i].posX, enemies[i].posY);
-                if (distance <= (shot.diameter / 2 + enemies[i].diameter / 2)) {
-                  shot.stay = false;
-                  enemies[i].stay = false;
-                  score += 10;
-                }
+          for (let i = 0; i < enemies.length; i++) {
+            if (enemies[i] instanceof AirEnemy) {
+              let distance = dist(shot.posX + (30 + shot.startX * cannon.width / 2), shot.posY + (485 + shot.startY * cannon.width / 2), enemies[i].posX, enemies[i].posY);
+              if (distance <= (shot.diameter / 2 + enemies[i].diameter / 2)) {
+                shot.stay = false;
+                enemies[i].stay = false;
+                score += 10;
               }
             }
           }
-          else {
-            if (bossHeath > 0) {
-              let distance = dist(shot.posX + (30 + shot.startX * cannon.width / 2), shot.posY + (485 + shot.startY * cannon.width / 2), boss.posX, boss.posY);
-              if (distance <= (shot.diameter / 2 + boss.diameter / 2)) {
-                shot.stay = false;
-                bossHeath--;
-              }
-              if (bossHeath == 0) {
-                boss = undefined;
-                delete (boss);
-              }
+          if (bossHeath > 0) {
+            let distance = dist(shot.posX + (30 + shot.startX * cannon.width / 2), shot.posY + (485 + shot.startY * cannon.width / 2), boss.posX, boss.posY);
+            if (distance <= (shot.diameter / 2 + boss.diameter / 2)) {
+              shot.stay = false;
+              bossHeath--;
+            }
+            if (bossHeath == 0) {
+              boss = undefined;
+              delete (boss);
+              score += 100;
             }
           }
         }
@@ -153,7 +163,9 @@ function draw() {
       lifesLeft = 3;
       noLoop();
       $('#lose-window').slideDown('slow');
-      $('#score').html("Ваш счёт: " + score + " очков.");
+      $('.score').html("Ваш счёт: " + score + " очков.");
+      startCheck++;
+      localStorage.setItem(nickname, score);
     }
 
     enemies.forEach((enemy) => {
@@ -166,10 +178,7 @@ function draw() {
     line(35, 500, 35, 0);
     stroke('#000000');
     strokeWeight(1);
-    push();
-    translate(30, 485);
-    cannon.move();
-    pop();
+    cannon.render();
     fill("rgb(18, 187, 74)");
     circle(13, HEIGHT + 25, cannon.width);
     fill("#ffffff");
@@ -216,5 +225,18 @@ function drawLifes() {
   lifes.forEach((life) => {
     image(life, x, 16, life.width / 10, life.height / 10);
     x += 30
+  })
+}
+
+function toMenu() {
+  $('#scoreboard-window').slideUp('slow');
+  setTimeout(() => {
+    $('#menu-window').slideDown('slow');
+  }, 800)
+}
+
+function showScoreboard() {
+  $.each(localStorage, function(key, value) {
+
   })
 }

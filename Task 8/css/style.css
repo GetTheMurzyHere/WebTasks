@@ -31,7 +31,9 @@ canvas {
 }
 
 .btn {
-    margin: 20px;
+    text-align: center;
+    width: 200px;
+    margin-top: 10px;
     transition: .3s;
     cursor: pointer;
     background: #3bb355;
@@ -48,5 +50,44 @@ canvas {
     position: absolute;
     width: 850px;
     height: 500px;
+    border: 1px black solid
+}
+
+#scoreboard-window {
+    padding: 0 10px 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ace6ac;
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    border: 2px black solid;
+}
+
+#scoreboard::-webkit-scrollbar { 
+    display: none; 
+}
+
+#scoreboard {
+    margin-top: 10px;
+    width: inherit;
+    height: 225px;
+    border: 1px black solid;
+    overflow: auto; 
+}
+
+.nickname {
+    transition: .3s;
+    border: 1px black solid
+}
+
+thead td {
+    color: #3a3a3a;
+}
+
+td {
+    width: 250px;
+    text-align: center;
     border: 1px black solid
 }

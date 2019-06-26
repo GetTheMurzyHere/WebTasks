@@ -12,17 +12,16 @@ class Enemy {
     switch (level) {
       case 1:
         this.speed = 1.5;
-        this.posX = this.posX - this.speed;
         break;
       case 2:
         this.speed = 2.5;
-        this.speed = this.speed + this.velocity;
-        this.posX = this.posX - this.speed;
         break;
       case 3:
         this.speed = 3.2;
-        this.posX = this.posX - this.speed;
         break;
+      case 4:
+        this.speed = 2.5;
     }
+    this.posX = this.posX - this.speed;
   }
 }
