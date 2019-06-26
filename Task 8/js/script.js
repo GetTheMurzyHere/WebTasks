@@ -29,6 +29,7 @@ let score = 0;
 let level;
 let boss;
 let bossHeath = 10;
+let isSpawned = false;
 
 let nickname;
 
@@ -61,9 +62,6 @@ function setup() {
 
   imageMode(CENTER);
 
-  spawnEnemies(enemyCount);
-  boss = new Boss(klevchImg);
-
   frameRate(60);
 }
 
@@ -79,19 +77,20 @@ function play() {
   $('#menu-window').slideUp('slow');
   $('#lose-window').slideUp('slow');
   localStorage.setItem(nickname, 0);
-  level = 1;
-  enemyCount = 10;
+  level = 4;
+  level == 1 ? enemyCount = 10 : enemyCount += 5;
+  spawnEnemies(enemyCount);
   gameStarted = true;
   shots = [];
   enemies = [];
   lifes = [lifeImg, lifeImg, lifeImg];
   score = 0;
-  spawnEnemies(enemyCount);
   loop();
 }
 
 function draw() {
   if (gameStarted) {
+
     if (enemies.length == 0 && lifesLeft != 0 && level != 4) {
       level++;
       enemyCount += 5;
@@ -103,29 +102,21 @@ function draw() {
         gameStarted = true;
       }, 3500)
     }
+
     background(164, 217, 224);
+
     textFont(handyFont);
     fill('#000000');
     textSize(32);
-    text('Очки: ' + score, 140, 25)
-    if (level == 4) {
-      if (bossHeath > 0) {
-        boss.render();
-      }
-      else {
-        $('#win-game-window').slideDown('slow');
-        $('.score').html('Ваш счёт: ' + score + ' очков.');
-        localStorage.setItem(nickname, score);
-        noLoop();
-        gameStarted = false;
-      }
-    }
+    text('Очки: ' + score, 140, 25);
+
     if (shots.length != 0) {
       shots.forEach((shot) => {
         if ((shot.posX >= WIDTH || shot.posY >= HEIGHT)) {
           shot.stay = false;
         }
         else {
+
           for (let i = 0; i < enemies.length; i++) {
             if (enemies[i] instanceof AirEnemy) {
               let distance = dist(shot.posX + (30 + shot.startX * cannon.width / 2), shot.posY + (485 + shot.startY * cannon.width / 2), enemies[i].posX, enemies[i].posY);
@@ -136,25 +127,24 @@ function draw() {
               }
             }
           }
-          if (bossHeath > 0) {
-            let distance = dist(shot.posX + (30 + shot.startX * cannon.width / 2), shot.posY + (485 + shot.startY * cannon.width / 2), boss.posX, boss.posY);
-            if (distance <= (shot.diameter / 2 + boss.diameter / 2)) {
-              shot.stay = false;
-              bossHeath--;
-            }
-            if (bossHeath == 0) {
-              boss = undefined;
-              delete (boss);
-              score += 100;
+          if (level == 4) {
+            if (bossHeath > 0) {
+              let distance = dist(shot.posX + (30 + shot.startX * cannon.width / 2), shot.posY + (485 + shot.startY * cannon.width / 2), boss.posX, boss.posY);
+              if (distance <= (shot.diameter / 2 + boss.diameter / 2)) {
+                shot.stay = false;
+                bossHeath--;
+              }
+              if (bossHeath == 0) {
+                boss = undefined;
+                delete (boss);
+                score += 100;
+              }
             }
           }
         }
         shots = shots.filter((shot) => shot.stay);
         enemies = enemies.filter((enemy) => enemy.stay);
-        push();
-        translate(30 + shot.startX * cannon.width / 2, 485 + shot.startY * cannon.width / 2);
         shot.render();
-        pop();
       })
     }
 
@@ -179,18 +169,48 @@ function draw() {
     })
 
     drawLifes();
+
     stroke('#B22222');
     strokeWeight(3);
     line(35, 500, 35, 0);
+
     stroke('#000000');
     strokeWeight(1);
     cannon.render();
     fill('rgb(18, 187, 74)');
     circle(13, HEIGHT + 25, cannon.width);
-    fill('#ffffff');
 
+    fill('#ffffff');
     textSize(28);
     text(cannon.timeToReload > 0 ? Math.round(cannon.timeToReload * 100) / 100 : 'OK!', 5, 490);
+
+    if (level == 4) {
+      if (!isSpawned) {
+        spawnEnemies(20);
+        boss = new Boss(klevchImg);
+        isSpawned = true;
+      }
+      if (bossHeath > 0 && enemies.length == 0) {
+        boss.render();
+      }
+      if (bossHeath == 0) {
+        background(164, 217, 224);
+        $('#win-game-window').slideDown('slow');
+        $('.score').html('Ваш счёт: ' + score + ' очков.');
+        localStorage.setItem(nickname, score);
+        gameStarted = false;
+        noLoop();
+      }
+      if (boss.posX - (boss.diameter / 4) <= 35) {
+        background(164, 217, 224);
+        $('#lose-window').slideDown('slow');
+        $('.score').html('Ваш счёт: ' + score + ' очков.');
+        localStorage.setItem(nickname, score);
+        gameStarted = false;
+        noLoop();
+      }
+    }
+
   }
 }
 

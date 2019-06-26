@@ -12,9 +12,7 @@ class Boss {
   }
 
   render() {
-    if (this.posX >= 700) {
-      this.move();
-    }
+    this.move();
     image(this.image, this.posX, this.posY, this.diameter, this.diameter)
   }
 }
