@@ -62,26 +62,26 @@ class Cannon {
 
       switch (level) {
         case 1:
-          shot = new Cannonball(klevchImg, 100, klevchImg.width / 10, this.angle, startX, startY);
+          shot = new Cannonball(shotImg, 100, shotImg.width / 10, this.angle, startX, startY);
           shots.push(shot);
           time = 1.5;
           break;
         case 2 || 3:
-          shot = new Cannonball(klevchImg, 100, klevchImg.width / 10, this.angle, startX, startY);
+          shot = new Cannonball(shotImg, 100, shotImg.width / 10, this.angle, startX, startY);
           shots.push(shot);
           time = 1;
           break;
         case 3:
-          shot = new Cannonball(klevchImg, 100, klevchImg.width / 10, this.angle, startX, startY);
-          shot2 = new Cannonball(klevchImg, 75, klevchImg.width / 10, this.angle, startX, startY);
+          shot = new Cannonball(shotImg, 100, shotImg.width / 10, this.angle, startX, startY);
+          shot2 = new Cannonball(shotImg, 75, shotImg.width / 10, this.angle, startX, startY);
           shots.push(shot);
           shots.push(shot2)
           time = 0.8;
           break;
         case 4:
-          shot = new Cannonball(klevchImg, 100, klevchImg.width / 10, this.angle, startX, startY);
-          shot2 = new Cannonball(klevchImg, 85, klevchImg.width / 10, this.angle, startX, startY);
-          shot3 = new Cannonball(klevchImg, 75, klevchImg.width / 10, this.angle, startX, startY);
+          shot = new Cannonball(shotImg, 100, shotImg.width / 10, this.angle, startX, startY);
+          shot2 = new Cannonball(shotImg, 85, shotImg.width / 10, this.angle, startX, startY);
+          shot3 = new Cannonball(shotImg, 75, shotImg.width / 10, this.angle, startX, startY);
           shots.push(shot);
           shots.push(shot2);
           shots.push(shot3)

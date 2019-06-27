@@ -11,8 +11,12 @@ let malyavinImg;
 let matafonovImg;
 let shepelevaImg;
 let suschenkoImg;
+let artemImg;
+let rodyaImg;
+let egorImg;
 let tankImg;
 let tankHitImg;
+let shotImg;
 
 let lifeImg;
 let lostLifeImg;
@@ -44,9 +48,12 @@ function preload() {
   shepelevaImg = loadImage('assets/img/shepeleva.png');
   suschenkoImg = loadImage('assets/img/suschenko.png');
   kleninImg = loadImage('assets/img/klenin.png');
-  tankImg = loadImage('assets/img/tank.png')
-  tankHitImg = loadImage('assets/img/tankHit.png')
-  klevchHitImg = loadImage('assets/img/klevchHit.png')
+  tankImg = loadImage('assets/img/tank.png');
+  tankHitImg = loadImage('assets/img/tankHit.png');
+  klevchHitImg = loadImage('assets/img/klevchHit.png');
+  artemImg = loadImage('assets/img/artem.png');
+  rodyaImg = loadImage('assets/img/rodya.png');
+  egorImg = loadImage('assets/img/golubchik.png');
 
   lifeImg = loadImage('assets/img/heart.png');
   lostLifeImg = loadImage('assets/img/greyheart.png');
@@ -69,7 +76,7 @@ function setup() {
   frameRate(60);
 }
 
-function play() {
+function play(name) {
   nickname = $('#nickname').val();
   if (nickname == "") {
     $('#nickname').css('background', '#f3a0a0');
@@ -78,8 +85,19 @@ function play() {
     }, 300);
     return;
   }
-  $('#menu-window').slideUp('slow');
+  $('#choose-window').slideUp('slow');
   $('#lose-window').slideUp('slow');
+  switch (name) {
+    case 'artem':
+      shotImg = artemImg;
+      break;
+    case 'rodya':
+      shotImg = rodyaImg;
+      break;
+    case 'egor':
+      shotImg = egorImg;
+      break;
+  }
   localStorage.setItem(nickname, 0);
   enemies = [];
   level = 1;
@@ -343,5 +361,12 @@ function showScoreboard() {
   setTimeout(() => {
     $('#scoreboard-window').slideDown('slow');
     background(164, 217, 224);
+  }, 800)
+}
+
+function showCharacters() {
+  $('#menu-window').slideUp('slow');
+  setTimeout(() => {
+    $('#choose-window').slideDown('slow');
   }, 800)
 }

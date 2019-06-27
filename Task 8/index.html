@@ -17,7 +17,8 @@
         <div>
             <h2 class="popup-title" style="margin-bottom: 5px; margin-top: 25px">Вы проиграли!</h2>
             <div class="description">
-                <div style="text-align: center; margin: 5px">Клевчихин пробрался в вашу группу и отчислил всех её участников!</div>
+                <div style="text-align: center; margin: 5px">Клевчихин пробрался в вашу группу и отчислил всех её
+                    участников!</div>
                 <div style="text-align: center; margin-bottom: 5px" class="score">
                 </div>
             </div>
@@ -40,9 +41,29 @@
                     ВСЕЙ ГРУППЫ!
                 </div>
             </div>
-            <input type="text" autocomplete="off" placeholder="Ваш никнейм" id="nickname"
-                style="margin-top: 10px">
-            <div onclick="play()" class="btn" style="width: 145px">Играть!</div>
+            <input type="text" autocomplete="off" placeholder="Ваш никнейм" id="nickname" style="margin-top: 10px">
+            <div onclick="showCharacters();" class="btn" style="width: 145px">Играть!</div>
+        </div>
+    </div>
+    <div id="choose-window" class="container"
+        style="position: absolute; display: none; width: 850px; height: 500px; text-align: center; padding-top: 250px; padding-left: 340px;">
+        <div class="choose-menu">
+            <h2 class="popup-title" style="margin-bottom: 0px">Выберите персонажа!</h2>
+            <hr width="477" color="black">
+            <div class="characters">
+                <div class="character" onclick="play('artem')">
+                    <h3 style="margin-bottom: 15px; margin-top: 15px">Артём</h3>
+                    <img src="assets/img/artem.png">
+                </div>
+                <div class="character" onclick="play('rodya')">
+                    <h3 style="margin-bottom: 15px; margin-top: 15px">Родя</h3>
+                    <img src="assets/img/rodya.png">
+                </div>
+                <div class="character" onclick="play('egor')">
+                    <h3 style="margin-bottom: 15px; margin-top: 15px">Егор</h3>
+                    <img src="assets/img/golubchik.png">
+                </div>
+            </div>
         </div>
     </div>
     <div id="win-lvl-window" class="container"

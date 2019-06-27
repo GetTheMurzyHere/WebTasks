@@ -90,3 +90,30 @@ td {
     text-align: center;
     border: 1px black solid
 }
+
+.characters {
+    display: flex;
+    width: inherit;
+    height: inherit;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.character {
+    transition: .3s;
+    cursor: pointer;
+    width: 33.333%;
+    background: #4bb851;
+    margin: 0 10px 0 10px;
+    border-radius: 10px;
+    border: 1px black solid
+}
+
+.character:hover {
+    background: rgb(192, 192, 44);
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
