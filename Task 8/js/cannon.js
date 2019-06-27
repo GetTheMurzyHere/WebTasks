@@ -52,22 +52,39 @@ class Cannon {
         clearInterval(this.reloadInterval);
       }
 
-      // let distance = Math.sqrt((mouseX - 30) * (mouseX - 30) - (mouseY - 485) * (mouseY - 485));
+      let startX = cannon.width / 2 * Math.cos(this.angle);
+      let startY = -(cannon.width / 2 * Math.sin(this.angle));
 
-      let normalizeX = cannon.width / 2 * Math.cos(this.angle);
-      let normalizeY = -(cannon.width / 2 * Math.sin(this.angle));
-
-      let shot = new Cannonball(klevchImg, 95, klevchImg.width / 10, this.angle, normalizeX, normalizeY);
-      shots.push(shot);
       let time;
+      let shot;
+      let shot2;
+      let shot3;
+
       switch (level) {
         case 1:
+          shot = new Cannonball(klevchImg, 100, klevchImg.width / 10, this.angle, startX, startY);
+          shots.push(shot);
           time = 1.5;
           break;
         case 2 || 3:
+          shot = new Cannonball(klevchImg, 100, klevchImg.width / 10, this.angle, startX, startY);
+          shots.push(shot);
           time = 1;
           break;
-        default:
+        case 3:
+          shot = new Cannonball(klevchImg, 100, klevchImg.width / 10, this.angle, startX, startY);
+          shot2 = new Cannonball(klevchImg, 75, klevchImg.width / 10, this.angle, startX, startY);
+          shots.push(shot);
+          shots.push(shot2)
+          time = 0.8;
+          break;
+        case 4:
+          shot = new Cannonball(klevchImg, 100, klevchImg.width / 10, this.angle, startX, startY);
+          shot2 = new Cannonball(klevchImg, 85, klevchImg.width / 10, this.angle, startX, startY);
+          shot3 = new Cannonball(klevchImg, 75, klevchImg.width / 10, this.angle, startX, startY);
+          shots.push(shot);
+          shots.push(shot2);
+          shots.push(shot3)
           time = 0.7;
           break;
       }

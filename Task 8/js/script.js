@@ -82,7 +82,7 @@ function play() {
   $('#lose-window').slideUp('slow');
   localStorage.setItem(nickname, 0);
   enemies = [];
-  level = 4;
+  level = 1;
   enemyCount = 10;
   spawnEnemies(enemyCount);
   gameStarted = true;
@@ -98,6 +98,7 @@ function draw() {
     if (enemies.length == 0 && lifesLeft != 0 && level != 4) {
       level++;
       enemyCount += 5;
+      shots = [];
       gameStarted = false;
       $('#win-lvl-window').slideDown('slow');
       setTimeout(() => {
@@ -182,7 +183,7 @@ function draw() {
           if (level == 4) {
             if (boss != undefined) {
               if (boss.health > 0) {
-                let distance = dist(shot.posX + (30 + shot.startX * cannon.width / 2), shot.posY + (485 + shot.startY * cannon.width / 2), boss.posX, boss.posY);
+                let distance = dist(shot.posX + (30 + shot.startX), shot.posY + (485 - shot.startY), boss.posX, boss.posY);
                 if (distance <= (shot.diameter / 2 + boss.width / 2)) {
                   shot.stay = false;
                   boss.health--;
