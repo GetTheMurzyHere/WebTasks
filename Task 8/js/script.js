@@ -11,6 +11,8 @@ let malyavinImg;
 let matafonovImg;
 let shepelevaImg;
 let suschenkoImg;
+let tankImg;
+let tankHitImg;
 
 let lifeImg;
 let lostLifeImg;
@@ -28,7 +30,6 @@ let gameStarted = false;
 let score = 0;
 let level;
 let boss;
-let bossHeath = 10;
 let isSpawned = false;
 
 let nickname;
@@ -43,6 +44,9 @@ function preload() {
   shepelevaImg = loadImage('assets/img/shepeleva.png');
   suschenkoImg = loadImage('assets/img/suschenko.png');
   kleninImg = loadImage('assets/img/klenin.png');
+  tankImg = loadImage('assets/img/tank.png')
+  tankHitImg = loadImage('assets/img/tankHit.png')
+  klevchHitImg = loadImage('assets/img/klevchHit.png')
 
   lifeImg = loadImage('assets/img/heart.png');
   lostLifeImg = loadImage('assets/img/greyheart.png');
@@ -77,12 +81,12 @@ function play() {
   $('#menu-window').slideUp('slow');
   $('#lose-window').slideUp('slow');
   localStorage.setItem(nickname, 0);
+  enemies = [];
   level = 4;
-  level == 1 ? enemyCount = 10 : enemyCount += 5;
+  enemyCount = 10;
   spawnEnemies(enemyCount);
   gameStarted = true;
   shots = [];
-  enemies = [];
   lifes = [lifeImg, lifeImg, lifeImg];
   score = 0;
   loop();
@@ -105,10 +109,25 @@ function draw() {
 
     background(164, 217, 224);
 
-    textFont(handyFont);
-    fill('#000000');
-    textSize(32);
-    text('Очки: ' + score, 140, 25);
+    if (level == 4) {
+      if (!isSpawned) {
+        boss = new Boss(klevchImg, 1200, 250, 0.8, klevchImg.width / 1.1, klevchImg.height / 1.1);
+        isSpawned = true;
+      }
+      if (boss != undefined) {
+        if (boss.health > 0 && enemies.length == 0) {
+          boss.render();
+        }
+        if (boss.posX - (boss.width / 4) <= 35) {
+          background(164, 217, 224);
+          $('#lose-window').slideDown('slow');
+          $('.score').html('Ваш счёт: ' + score + ' очков.');
+          localStorage.setItem(nickname, score);
+          gameStarted = false;
+          noLoop();
+        }
+      }
+    }
 
     if (shots.length != 0) {
       shots.forEach((shot) => {
@@ -118,29 +137,76 @@ function draw() {
         else {
 
           for (let i = 0; i < enemies.length; i++) {
+
             if (enemies[i] instanceof AirEnemy) {
-              let distance = dist(shot.posX + (30 + shot.startX * cannon.width / 2), shot.posY + (485 + shot.startY * cannon.width / 2), enemies[i].posX, enemies[i].posY);
-              if (distance <= (shot.diameter / 2 + enemies[i].diameter / 2)) {
+              let distance = dist(shot.posX + (30 + shot.startX), shot.posY + (485 - shot.startY), enemies[i].posX, enemies[i].posY);
+              if (distance <= (shot.diameter / 2 + enemies[i].width / 2)) {
                 shot.stay = false;
                 enemies[i].stay = false;
                 score += 10;
               }
             }
-          }
-          if (level == 4) {
-            if (bossHeath > 0) {
-              let distance = dist(shot.posX + (30 + shot.startX * cannon.width / 2), shot.posY + (485 + shot.startY * cannon.width / 2), boss.posX, boss.posY);
-              if (distance <= (shot.diameter / 2 + boss.diameter / 2)) {
+
+            if (enemies[i] instanceof GroundEnemy) {
+              let shotX = shot.posX + (30 + shot.startX);
+              let shotY = shot.posY + (485 - shot.startY);
+              let testX = shotX;
+              let testY = shotY;
+
+              if (shotX < enemies[i].posX) testX = enemies[i].posX - enemies[i].width / 2;
+              else if (shotX > enemies[i].posX + enemies[i].width / 2) testX = enemies[i].posX + enemies[i].width / 2;
+              if (shotY < enemies[i].posY) testY = enemies[i].posY - enemies[i].height / 2;
+              else if (shotY > enemies[i].posY + enemies[i].height / 2) testY = enemies[i].posY + enemies[i].height / 2;
+
+              let distX = shotX - testX;
+              let distY = shotY - testY;
+              let distance = Math.sqrt((distX * distX) + (distY * distY));
+
+              if (distance <= shot.diameter / 2) {
                 shot.stay = false;
-                bossHeath--;
+                enemies[i].health--;
+                if (enemies[i].health < 0) {
+                  enemies[i].stay = false;
+                }
+                else {
+                  enemies[i].image = tankHitImg;
+                  setTimeout(() => {
+                    enemies[i].image = tankImg;
+                  }, 150)
+                }
               }
-              if (bossHeath == 0) {
-                boss = undefined;
-                delete (boss);
-                score += 100;
+            }
+
+          }
+
+          if (level == 4) {
+            if (boss != undefined) {
+              if (boss.health > 0) {
+                let distance = dist(shot.posX + (30 + shot.startX * cannon.width / 2), shot.posY + (485 + shot.startY * cannon.width / 2), boss.posX, boss.posY);
+                if (distance <= (shot.diameter / 2 + boss.width / 2)) {
+                  shot.stay = false;
+                  boss.health--;
+                  boss.image = klevchHitImg;
+                  setTimeout(() => {
+                    boss.image = klevchImg;
+                  }, 150)
+                }
+                if (boss.health == 0) {
+                  background(164, 217, 224);
+                  boss = undefined;
+                  delete (boss);
+                  score += 100;
+                  $('#win-game-window').slideDown('slow');
+                  $('.score').html('Ваш счёт: ' + score + ' очков.');
+                  localStorage.setItem(nickname, score);
+                  gameStarted = false;
+                  noLoop();
+                  return;
+                }
               }
             }
           }
+
         }
         shots = shots.filter((shot) => shot.stay);
         enemies = enemies.filter((enemy) => enemy.stay);
@@ -166,9 +232,8 @@ function draw() {
 
     enemies.forEach((enemy) => {
       enemy.render();
+      strokeWeight(2)
     })
-
-    drawLifes();
 
     stroke('#B22222');
     strokeWeight(3);
@@ -180,42 +245,21 @@ function draw() {
     fill('rgb(18, 187, 74)');
     circle(13, HEIGHT + 25, cannon.width);
 
+    textFont(handyFont);
+    fill('#000000');
+    textSize(32);
+    text('Очки: ' + score, 140, 25);
+    drawLifes();
+
     fill('#ffffff');
     textSize(28);
     text(cannon.timeToReload > 0 ? Math.round(cannon.timeToReload * 100) / 100 : 'OK!', 5, 490);
-
-    if (level == 4) {
-      if (!isSpawned) {
-        spawnEnemies(20);
-        boss = new Boss(klevchImg);
-        isSpawned = true;
-      }
-      if (bossHeath > 0 && enemies.length == 0) {
-        boss.render();
-      }
-      if (bossHeath == 0) {
-        background(164, 217, 224);
-        $('#win-game-window').slideDown('slow');
-        $('.score').html('Ваш счёт: ' + score + ' очков.');
-        localStorage.setItem(nickname, score);
-        gameStarted = false;
-        noLoop();
-      }
-      if (boss.posX - (boss.diameter / 4) <= 35) {
-        background(164, 217, 224);
-        $('#lose-window').slideDown('slow');
-        $('.score').html('Ваш счёт: ' + score + ' очков.');
-        localStorage.setItem(nickname, score);
-        gameStarted = false;
-        noLoop();
-      }
-    }
-
   }
 }
 
 function spawnEnemies(count) {
   let delta = 0;
+  let speed;
   for (let i = 0; i < count; i++) {
     let face;
     let temp = Math.round(random(1, 6));
@@ -239,10 +283,35 @@ function spawnEnemies(count) {
         face = suschenkoImg;
         break;
     }
-    let enemy = new AirEnemy(face, face.width / 10);
-    enemy.posX += delta;
+
+    switch (level) {
+      case 1:
+        speed = 1.5;
+        break;
+      case 2:
+        speed = 2.5;
+        break;
+      case 3:
+        speed = 3.2;
+        break;
+      case 4:
+        speed = 2.5;
+    }
+
+    let enemy = new AirEnemy(face, 950 + delta, random(40, 350), speed, face.width / 10, face.height / 10);
+
     enemies.push(enemy);
     delta += 175;
+
+  }
+  if (level > 2) {
+    delta = 0;
+    for (let i = 2; i < level; i++) {
+      let tank = new GroundEnemy(tankImg, 1200, 450, 0.7, tankImg.width / 5, tankImg.height / 5)
+      tank.posX += delta;
+      enemies.push(tank);
+      delta += 500;
+    }
   }
 }
 

@@ -1,27 +1,19 @@
 class Enemy {
-  constructor(img) {
+  constructor(img, x, y, speed, width, height) {
     this.image = img;
-    this.posX = 950;
-    this.posY = random(40, 250);
-    this.stay = true;
-    this.speed;
-    this.velocity = random(0.02);
+    this.posX = x;
+    this.posY = y;
+    this.speed = speed;
+    this.width = width;
+    this.height = height;
   }
 
   move() {
-    switch (level) {
-      case 1:
-        this.speed = 1.5;
-        break;
-      case 2:
-        this.speed = 2.5;
-        break;
-      case 3:
-        this.speed = 3.2;
-        break;
-      case 4:
-        this.speed = 2.5;
-    }
     this.posX = this.posX - this.speed;
+  }
+
+  render() {
+    this.move();
+    image(this.image, this.posX, this.posY, this.width, this.height);
   }
 }

@@ -52,8 +52,10 @@ class Cannon {
         clearInterval(this.reloadInterval);
       }
 
-      let normalizeX = (mouseX - 30) / cannon.width / 2;
-      let normalizeY = (mouseY - 485) / cannon.width / 2;
+      // let distance = Math.sqrt((mouseX - 30) * (mouseX - 30) - (mouseY - 485) * (mouseY - 485));
+
+      let normalizeX = cannon.width / 2 * Math.cos(this.angle);
+      let normalizeY = -(cannon.width / 2 * Math.sin(this.angle));
 
       let shot = new Cannonball(klevchImg, 95, klevchImg.width / 10, this.angle, normalizeX, normalizeY);
       shots.push(shot);

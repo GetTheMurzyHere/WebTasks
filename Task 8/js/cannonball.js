@@ -21,7 +21,7 @@ class Cannonball {
   render = () => {
     this.move();
     push();
-    translate(30 + this.startX * cannon.width / 2, 485 + this.startY * cannon.width / 2);
+    translate(30 + this.startX, 485 - this.startY);
     image(this.image, this.posX, this.posY, this.diameter, this.diameter);
     pop();
   }
