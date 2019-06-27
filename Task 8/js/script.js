@@ -3,6 +3,17 @@ let handyFont;
 
 let cannonImg;
 
+let deathSound;
+let shootSound;
+let winSound;
+let winRoundSound;
+let hitSound;
+let loseSound;
+let loseLifeSound;
+let wrongNicknameSound;
+let clickSound;
+let explosionSound;
+
 let klevchImg;
 let baranovImg;
 let kanImg;
@@ -54,12 +65,23 @@ function preload() {
   artemImg = loadImage('assets/img/artem.png');
   rodyaImg = loadImage('assets/img/rodya.png');
   egorImg = loadImage('assets/img/golubchik.png');
+  explosionGif = loadImage('assets/img/explosion.gif');
 
   lifeImg = loadImage('assets/img/heart.png');
   lostLifeImg = loadImage('assets/img/greyheart.png');
 
   handyFont = loadFont('assets/fonts/hAndy.ttf');
 
+  deathSound = loadSound('assets/sound/death.mp3');
+  shootSound = loadSound('assets/sound/shoot.mp3');
+  winSound = loadSound('assets/sound/win.mp3');
+  winRoundSound = loadSound('assets/sound/winround.mp3');
+  hitSound = loadSound('assets/sound/hit.mp3');
+  loseSound = loadSound('assets/sound/lose.mp3');
+  loseLifeSound = loadSound('assets/sound/enemypop.mp3');
+  wrongNicknameSound = loadSound('assets/sound/wrongnickname.mp3');
+  clickSound = loadSound('assets/sound/click.mp3');
+  explosionSound = loadSound('assets/sound/explosion.mp3');
 }
 
 function setup() {
@@ -77,14 +99,7 @@ function setup() {
 }
 
 function play(name) {
-  nickname = $('#nickname').val();
-  if (nickname == "") {
-    $('#nickname').css('background', '#f3a0a0');
-    setTimeout(() => {
-      $('#nickname').css('background', '#ffffff');
-    }, 300);
-    return;
-  }
+  clickSound.play();
   $('#choose-window').slideUp('slow');
   $('#lose-window').slideUp('slow');
   switch (name) {
@@ -100,7 +115,7 @@ function play(name) {
   }
   localStorage.setItem(nickname, 0);
   enemies = [];
-  level = 1;
+  level = 3;
   enemyCount = 10;
   spawnEnemies(enemyCount);
   gameStarted = true;
@@ -114,6 +129,7 @@ function draw() {
   if (gameStarted) {
 
     if (enemies.length == 0 && lifesLeft != 0 && level != 4) {
+      winRoundSound.play();
       level++;
       enemyCount += 5;
       shots = [];
@@ -138,6 +154,7 @@ function draw() {
           boss.render();
         }
         if (boss.posX - (boss.width / 4) <= 35) {
+          loseSound.play();
           background(164, 217, 224);
           $('#lose-window').slideDown('slow');
           $('.score').html('Ваш счёт: ' + score + ' очков.');
@@ -162,6 +179,7 @@ function draw() {
               if (distance <= (shot.diameter / 2 + enemies[i].width / 2)) {
                 shot.stay = false;
                 enemies[i].stay = false;
+                deathSound.play();
                 score += 10;
               }
             }
@@ -171,21 +189,25 @@ function draw() {
               let shotY = shot.posY + (485 - shot.startY);
               let testX = shotX;
               let testY = shotY;
-
               if (shotX < enemies[i].posX) testX = enemies[i].posX - enemies[i].width / 2;
               else if (shotX > enemies[i].posX + enemies[i].width / 2) testX = enemies[i].posX + enemies[i].width / 2;
               if (shotY < enemies[i].posY) testY = enemies[i].posY - enemies[i].height / 2;
               else if (shotY > enemies[i].posY + enemies[i].height / 2) testY = enemies[i].posY + enemies[i].height / 2;
-
               let distX = shotX - testX;
               let distY = shotY - testY;
               let distance = Math.sqrt((distX * distX) + (distY * distY));
-
               if (distance <= shot.diameter / 2) {
+                hitSound.play();
                 shot.stay = false;
                 enemies[i].health--;
                 if (enemies[i].health < 0) {
                   enemies[i].stay = false;
+                  explosionSound.play();
+                  let self = enemies[i];
+                  setTimeout(() => {
+                    image(explosionGif, self.posX, self.posY)
+                  }, 200);
+                  score += 30;
                 }
                 else {
                   enemies[i].image = tankHitImg;
@@ -203,6 +225,7 @@ function draw() {
               if (boss.health > 0) {
                 let distance = dist(shot.posX + (30 + shot.startX), shot.posY + (485 - shot.startY), boss.posX, boss.posY);
                 if (distance <= (shot.diameter / 2 + boss.width / 2)) {
+                  hitSound.play();
                   shot.stay = false;
                   boss.health--;
                   boss.image = klevchHitImg;
@@ -211,6 +234,7 @@ function draw() {
                   }, 150)
                 }
                 if (boss.health == 0) {
+                  winSound.play();
                   background(164, 217, 224);
                   boss = undefined;
                   delete (boss);
@@ -235,6 +259,7 @@ function draw() {
 
     enemies.forEach((enemy) => {
       if (enemy.posX <= 35) {
+        loseLifeSound.play();
         lifes[lifesLeft - 1] = lostLifeImg;
         lifesLeft--;
         enemies.shift();
@@ -242,6 +267,7 @@ function draw() {
     })
 
     if (lifesLeft == 0) {
+      loseSound.play();
       lifesLeft = 3;
       noLoop();
       $('#lose-window').slideDown('slow');
@@ -344,6 +370,7 @@ function drawLifes() {
 
 function toMenu() {
   background(164, 217, 224);
+  clickSound.play();
   $('#scoreboard-window').slideUp('slow');
   $('#lose-window').slideUp('slow');
   setTimeout(() => {
@@ -353,6 +380,7 @@ function toMenu() {
 
 function showScoreboard() {
   background(164, 217, 224);
+  clickSound.play();
   $('#scoreboard').empty().append('<thead><tr><td>Никнейм</td><td>Очки</td></tr></thead>');
   for (let i = 0; i < localStorage.length; i++) {
     $('#scoreboard').append('<tr><td>' + localStorage.key(i) + '</td>' + '<td>' + localStorage.getItem(localStorage.key(i)) + '</td></tr>')
@@ -365,6 +393,18 @@ function showScoreboard() {
 }
 
 function showCharacters() {
+  clickSound.play();
+  nickname = $('#nickname').val();
+  if (nickname == "") {
+    $('#nickname').css('background', '#f3a0a0');
+    setTimeout(() => {
+      $('#nickname').css('background', '#ffffff');
+    }, 300);
+    wrongNicknameSound.play();
+    return;
+  }
+  winSound.stop();
+  loseSound.stop();
   $('#menu-window').slideUp('slow');
   setTimeout(() => {
     $('#choose-window').slideDown('slow');

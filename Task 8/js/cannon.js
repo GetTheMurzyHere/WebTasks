@@ -47,7 +47,7 @@ class Cannon {
 
   shoot() {
     if (this.timeToReload <= 0) {
-
+      shootSound.play();
       if (this.reloadInterval !== null) {
         clearInterval(this.reloadInterval);
       }
