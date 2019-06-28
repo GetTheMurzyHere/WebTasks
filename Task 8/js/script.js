@@ -115,7 +115,7 @@ function play(name) {
   }
   localStorage.setItem(nickname, 0);
   enemies = [];
-  level = 3;
+  level = 4;
   enemyCount = 10;
   spawnEnemies(enemyCount);
   gameStarted = true;

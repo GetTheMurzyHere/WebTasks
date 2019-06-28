@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    width: 20%;
+    height: 250px;
+    flex-direction: column;
+    border: 1px black solid;
+}
+
+.buttons {
+    display: flex;
+    height: 95%;
+    flex-direction: column;
+}
+
+.calc-row {
+    display: flex;
+    height: 24%;
+}
+
+.btn {
+    transition: .3s;
+    cursor: pointer;
+    margin: 5px;
+    display: flex;
+    width: 45%;
+    border: 1px black solid;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    width: 100%;
+    text-align: right;
+}
+
+#equal {
+    width: 100%;
+    margin-top: 2px;
+    margin-bottom: 15px;
+}
+
+.btn:hover {
+    width: 60%;
+    background: rgb(180, 180, 180);
+}
